@@ -23,6 +23,7 @@ final class UsersTableCreate extends AbstractMigration
             ->addColumn('nom', 'string', ['limit' => 50])
             ->addColumn('email', 'string')
             ->addColumn('tel', 'string', ['limit' => 12])
+            ->addColumn('sexe', 'string', ['limit' => 1])
             ->addColumn('id_slug', 'string')
             ->addColumn('role', 'string', ['limit' => 30])
             ->addColumn('id_ecole', 'integer')
