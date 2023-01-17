@@ -4,6 +4,7 @@ namespace App\Domain\User\Repository;
 
 use App\Domain\Core\Repository\Repository;
 use PDO;
+use Slim\Exception\HttpException;
 
 class UserRepository extends Repository
 {
@@ -27,13 +28,14 @@ class UserRepository extends Repository
         $tel = htmlspecialchars($user['tel']);
         $sexe = htmlspecialchars($user['sexe']);
         $mot_de_passe = password_hash(htmlspecialchars($user['mot_de_passe']), PASSWORD_DEFAULT);
+        $id_slug = htmlspecialchars($this->createId());
         $sql = "SELECT * FROM utilisateurs WHERE email = '$email' OR tel = '$tel'";
         $get = $this->connection->query($sql)->fetchAll();
         if (empty($get))
         {
-            if (!empty($prenoms) && !empty($nom) && !empty($email) && !empty($tel) && !empty($sexe) && !empty($mot_de_passe))
+            if (!empty($prenoms) && !empty($nom) && !empty($email) && !empty($tel) && !empty($sexe) && !empty($mot_de_passe) && !empty($id_slug))
             {
-                $sql = "INSERT INTO utilisateurs(prenoms, nom, email, tel, sexe, mot_de_passe) VALUES (:prenoms, :nom, :email, :tel, :sexe, :mot_de_passe)";
+                $sql = "INSERT INTO utilisateurs(prenoms, nom, email, tel, sexe, mot_de_passe, id_slug) VALUES (:prenoms, :nom, :email, :tel, :sexe, :mot_de_passe, :id_slug)";
                 $stmt = $this->connection->prepare($sql);
                 $stmt->bindValue('prenoms', $prenoms);
                 $stmt->bindValue('nom', $nom);
@@ -41,6 +43,7 @@ class UserRepository extends Repository
                 $stmt->bindValue('tel', $tel);
                 $stmt->bindValue('sexe', $sexe);
                 $stmt->bindValue('mot_de_passe', $mot_de_passe);
+                $stmt->bindValue('id_slug', $id_slug);
                 /****************************************
                  **** EXECUTE REGISTER REQUEST **********
                  ****************************************/
@@ -48,8 +51,8 @@ class UserRepository extends Repository
                 {
                     if($stmt->execute())
                     {
-                        $id = $this->connection->lastInsertId();
-                        $sql = "SELECT * FROM utilisateurs where id=$id LIMIT 1 ";
+                        #$id = $this->connection->lastInsertId();
+                        $sql = "SELECT * FROM utilisateurs where id_slug = '$id_slug' LIMIT 1 ";
                         return [
                             'success' => true,
                             'response' => $this->connection->query($sql)->fetchAll()[0]
@@ -69,14 +72,15 @@ class UserRepository extends Repository
                     $errorMessage = sprintf('%s %s', $statusCode, $response->getReasonPhrase());
                     return [
                         "success" => false,
-                        "message" => $errorMessage];
+                        "message" => $errorMessage
+                    ];
                 }
             }
             else
             {
                 return [
                     "success" => false,
-                    "message" => "Une variable est vide"
+                    "message" => "Veuillez remplir les champs requis"
                 ];
             }
         }
@@ -87,7 +91,53 @@ class UserRepository extends Repository
                 "message" => "Contact ou Email déjà associé à un compte"
             ];
         }
+    }
 
+    /**
+     * @param array $user
+     * @return array
+     */
+    public function connexion(array $user): array
+    {
+        if (isset($user['mot_de_passe']) && isset($user['email']) && !empty($user['mot_de_passe']) && !empty($user['email']))
+        {
+            $email = htmlspecialchars($user['email']);
+            $sql = "SELECT * FROM utilisateurs WHERE email= '$email'";
+            $utilisateur = $this->connection->query($sql)->fetchAll();
+
+            if($this->checkUserExist($utilisateur))
+            {
+                if ($this->checkPassword($utilisateur[0], $user))
+                {
+                    $token = $this->generateToken($utilisateur[0]);
+                }
+                else
+                {
+                    return [
+                        'success' => false,
+                        'message' => "Email ou mot de passe incorrect"
+                    ];
+                }
+            }
+            else
+            {
+                return ["success" => false,
+                    'message' => "Utilisateur inexistant"
+                ];
+            }
+            return [
+                'success' => true,
+                'user' => $utilisateur[0],
+                'token' => $token
+            ];
+        }
+        else
+        {
+            return [
+                "success" => false,
+                "message" => "Email ou mot de passe non fourni"
+            ];
+        }
     }
 
 
@@ -116,4 +166,65 @@ class UserRepository extends Repository
     {
         return $this->deleteOne('utilisateurs', $id);
     }
+
+    /**
+     * @param string $unId
+     * @return bool
+     */
+    public function checkIdExist(string $unId)
+    {
+        $sql = "SELECT * FROM utilisateurs WHERE id_slug = '$unId'";
+        $rep = $this->connection->query($sql)->fetchAll();
+        if ($rep)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    /**
+     * @return string
+     * @throws \Exception
+     */
+    public function createId()
+    {
+        $id_slug = $this->generateUniqueId(5);
+        while ($this->checkIdExist($id_slug))
+        {
+            $id_slug = $this->generateUniqueId(5);
+        }
+        return $id_slug;
+    }
+
+    /**
+     * @param array $user
+     * @return bool
+     */
+    public function checkUserExist(array $user): bool
+    {
+        if (!empty($user))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public function checkPassword(array $user, array $userLog): bool
+    {
+        if (password_verify($userLog['mot_de_passe'], $user['mot_de_passe']))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
 }

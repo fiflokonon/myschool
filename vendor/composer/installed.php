@@ -1,24 +1,24 @@
 <?php return array (
   'root' => 
   array (
-    'pretty_version' => '1.0.0+no-version-set',
-    'version' => '1.0.0.0',
+    'pretty_version' => 'dev-main',
+    'version' => 'dev-main',
     'aliases' => 
     array (
     ),
-    'reference' => NULL,
+    'reference' => '058da6f3e029df1013810f42a03aee262e9ec867',
     'name' => '__root__',
   ),
   'versions' => 
   array (
     '__root__' => 
     array (
-      'pretty_version' => '1.0.0+no-version-set',
-      'version' => '1.0.0.0',
+      'pretty_version' => 'dev-main',
+      'version' => 'dev-main',
       'aliases' => 
       array (
       ),
-      'reference' => NULL,
+      'reference' => '058da6f3e029df1013810f42a03aee262e9ec867',
     ),
     'cakephp/core' => 
     array (
@@ -55,6 +55,15 @@
       array (
       ),
       'reference' => 'aa7bba6c39b56751f5c917464f113c924d4ba10f',
+    ),
+    'firebase/php-jwt' => 
+    array (
+      'pretty_version' => 'v6.3.2',
+      'version' => '6.3.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'ea7dda77098b96e666c5ef382452f94841e439cd',
     ),
     'laravel/serializable-closure' => 
     array (
