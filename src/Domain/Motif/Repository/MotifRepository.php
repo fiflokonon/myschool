@@ -42,6 +42,7 @@ final class MotifRepository extends \App\Domain\Core\Repository\Repository
 
     public function createMotif(array $motif)
     {
-
+        $motif_nom = htmlspecialchars($motif['motif']);
+        $montant_motif = htmlspecialchars($motif['montant_motif']);
     }
 }

@@ -27,7 +27,7 @@ final class UsersService
         $users = $this->repository->listUsers();
         if (empty($users))
             return [
-                "success" => true,
+                "success" => false,
                 'message' => "Aucun utilisateur dans la base"];
         else
             return $users;

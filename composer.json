@@ -5,7 +5,8 @@
         "nyholm/psr7-server": "^1.0",
         "php-di/php-di": "^6.4",
         "robmorgan/phinx": "^0.13.4",
-        "firebase/php-jwt": "^6.3"
+        "firebase/php-jwt": "^6.3",
+      "ext-pdo": "*"
     },
     "autoload": {
         "psr-4": {
