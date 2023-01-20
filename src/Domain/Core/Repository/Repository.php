@@ -78,9 +78,7 @@ class Repository
                 ]);
             }
         } catch (HttpException $exception) {
-            $statusCode = $exception->getCode();
-            $errorMessage = sprintf('%s %s', $statusCode, $response->getReasonPhrase());
-            return ["success" => false, "message" => $errorMessage];
+            return ["success" => false, "message" => $exception->getMessage()];
         }
     }
 

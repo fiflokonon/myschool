@@ -4,24 +4,27 @@ namespace App\Domain\Motif\Service;
 
 use App\Domain\Motif\Repository\MotifRepository;
 
-final class MotifSercie
+final class DeleteSchoolMotifsService
 {
     /**
      * @var MotifRepository
      */
     private MotifRepository $repository;
 
+    /**
+     * @param MotifRepository $repository
+     */
     public function __construct(MotifRepository $repository)
     {
         $this->repository = $repository;
     }
 
     /**
-     * @param int $id
-     * @return mixed|null
+     * @param int $id_ecole
+     * @return array|false|mixed|string
      */
-    public function getMotif(int $id)
+    public function delSchoolMotifs(int $id_ecole)
     {
-        return $this->repository->motif($id);
+        return $this->repository->deleteSchoolMotifs($id_ecole);
     }
 }

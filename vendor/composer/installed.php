@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '058da6f3e029df1013810f42a03aee262e9ec867',
+    'reference' => '2453c2e3b62bb9a90782b4d9aaadbcde2ea297fd',
     'name' => '__root__',
   ),
   'versions' => 
@@ -18,7 +18,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '058da6f3e029df1013810f42a03aee262e9ec867',
+      'reference' => '2453c2e3b62bb9a90782b4d9aaadbcde2ea297fd',
     ),
     'cakephp/core' => 
     array (
