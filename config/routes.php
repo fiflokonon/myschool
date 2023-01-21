@@ -45,30 +45,38 @@ return function (App $app) {
      *************************/
 
     /** ROUTES NO REQUIRE AUTH **/
-    $app->post('/login', LoginAction::class);
-    $app->post('signup', CreateUserAction::class);
+    $app->post('/api/login', LoginAction::class);
+    $app->post('/api/signup', CreateUserAction::class);
 
     /*** ROUTES REQUIRED AUTH ********/
     $app->group('/api', function (RouteCollectorProxy $app)
     {
+        /*** USER-ROUTES ****/
         $app->get('/users', UsersAction::class);
         $app->get('/users/{id}', UserAction::class);
         $app->delete('/users/{id}', DeleteUserAction::class);
-        #$app->post('/users', CreateUserAction::class);
 
+        /*** SCHOOL-ROUTES ***/
         $app->get('/schools', SchoolsAction::class);
         $app->get('/schools/{id}', SchoolAction::class);
         $app->post('/schools', CreateSchoolAction::class);
         $app->delete('/schools/{id}', DeleteSchoolAction::class);
 
+        /*** MOTIF-ROUTES ***/
         $app->get('/motifs', MotifsAction::class);
         $app->get('/motifs/{id}', MotifAction::class);
         $app->get('/schools/{id}/motifs', SchoolMotifsAction::class);
         $app->post('/schools/{id}/motifs', CreateMotifAction::class);
+        $app->delete('/schools/{id}/motifs', DeleteSchoolMotifsAction::class);
         $app->delete('/motifs/{id}', DeleteMotifAction::class);
 
-    });
-
-
+        /*** EVENT-ROUTES ***/
+        $app->get('/events', EventsAction::class);
+        $app->get('/events/{id}', EventAction::class);
+        $app->get('/schools/{id}/events', SchoolEventsAction::class);
+        $app->post('/schools/{id}/events', SchoolEventsAction::class);
+        $app->delete('/schools/{id}/events', DeleteSchoolEventsAction::class);
+        $app->delete('/events/{id}', DeleteEventAction::class);
+    })->add(LoginMiddleware::class)->add(CorsMiddleware::class);
 
 };
