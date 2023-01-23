@@ -21,6 +21,7 @@ final class NotesTableCreate extends AbstractMigration
         $this->table('notes')
             ->addColumn('id_eleve', 'integer')
             ->addColumn('note', 'integer', ['limit' => 20])
+            ->addColumn('type', 'string', ['limit' => 50])
             ->addColumn('id_matiere', 'integer')
             ->addColumn('created_at', 'timestamp', ['default' => 'CURRENT_TIMESTAMP'])
             ->addForeignKey('id_eleve', 'eleves', 'id',

@@ -20,7 +20,10 @@ final class FieldsTableCreate extends AbstractMigration
     {
         $this->table('matieres')
             ->addColumn('matiere', 'string', ['limit' => 100])
+            ->addColumn('id_ecole', 'integer')
             ->addColumn('created_at', 'timestamp', ['default' => 'CURRENT_TIMESTAMP'])
+            ->addForeignKey('id_ecole', 'ecoles', 'id',
+            ['delete' => 'NO_ACTION', 'update' => 'CASCADE'])
             ->create();
     }
 
