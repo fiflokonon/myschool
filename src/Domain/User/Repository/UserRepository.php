@@ -5,6 +5,7 @@ namespace App\Domain\User\Repository;
 use App\Domain\Core\Repository\Repository;
 use PDO;
 use Slim\Exception\HttpException;
+use function DI\value;
 
 class UserRepository extends Repository
 {
@@ -109,7 +110,13 @@ class UserRepository extends Repository
             {
                 if ($this->checkPassword($utilisateur[0], $user))
                 {
+                    unset($utilisateur[0]['mot_de_passe']);
                     $token = $this->generateToken($utilisateur[0]);
+                    return [
+                        'success' => true,
+                        'user' => $utilisateur[0],
+                        'token' => $token
+                    ];
                 }
                 else
                 {
@@ -125,11 +132,6 @@ class UserRepository extends Repository
                     'message' => "Utilisateur inexistant"
                 ];
             }
-            return [
-                'success' => true,
-                'user' => $utilisateur[0],
-                'token' => $token
-            ];
         }
         else
         {

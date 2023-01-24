@@ -126,7 +126,7 @@ class Repository
         try {
             return JWT::decode($token, new Key($this->secret_key, 'HS256'));
         } catch (Exception $exception) {
-            if ($exception->getMessage() == 'Expired token') {
+            if ('Expired token' == $exception->getMessage()) {
                 return ["success" => false, 'message' => "reconnection"];
             } else {
                 return ["success" => false, 'message' => $exception->getMessage()];

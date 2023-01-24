@@ -15,9 +15,10 @@ class LoginMiddleware
 {
     private Error $error;
     private Repository $repository;
+
     /**
-     * @param ResponseFactoryInterface $responseFactory
      * @param Error $error
+     * @param Repository $repository
      */
     public function __construct(Error $error, Repository $repository)
     {
