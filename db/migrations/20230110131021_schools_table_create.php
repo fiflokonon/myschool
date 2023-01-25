@@ -23,6 +23,7 @@ final class SchoolsTableCreate extends AbstractMigration
             ->addColumn('email', 'string', ['limit' => 50])
             ->addColumn('contact', 'string', ['limit' => 12])
             ->addColumn('adresse', 'string', ['limit' => 50])
+            ->addColumn('id_slug', "string", ['limit' => 11])
             ->addIndex('nom', ['unique' => true])
             ->addIndex('email', ['unique' => true])
             ->addIndex('adresse', ['unique' => true])
