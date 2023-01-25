@@ -30,7 +30,7 @@ class InstalledVersions
     'aliases' => 
     array (
     ),
-    'reference' => '2453c2e3b62bb9a90782b4d9aaadbcde2ea297fd',
+    'reference' => '3675d15db1e5cb45300b7dc55aeaa803181c8e62',
     'name' => '__root__',
   ),
   'versions' => 
@@ -42,7 +42,7 @@ class InstalledVersions
       'aliases' => 
       array (
       ),
-      'reference' => '2453c2e3b62bb9a90782b4d9aaadbcde2ea297fd',
+      'reference' => '3675d15db1e5cb45300b7dc55aeaa803181c8e62',
     ),
     'cakephp/core' => 
     array (
@@ -272,21 +272,21 @@ class InstalledVersions
     ),
     'symfony/config' => 
     array (
-      'pretty_version' => 'v5.4.11',
-      'version' => '5.4.11.0',
+      'pretty_version' => 'v5.4.19',
+      'version' => '5.4.19.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'ec79e03125c1d2477e43dde8528535d90cc78379',
+      'reference' => '9bd60843443cda9638efdca7c41eb82ed0026179',
     ),
     'symfony/console' => 
     array (
-      'pretty_version' => 'v5.4.17',
-      'version' => '5.4.17.0',
+      'pretty_version' => 'v5.4.19',
+      'version' => '5.4.19.0',
       'aliases' => 
       array (
       ),
-      'reference' => '58422fdcb0e715ed05b385f70d3e8b5ed4bbd45f',
+      'reference' => 'dccb8d251a9017d5994c988b034d3e18aaabf740',
     ),
     'symfony/deprecation-contracts' => 
     array (
@@ -299,12 +299,12 @@ class InstalledVersions
     ),
     'symfony/filesystem' => 
     array (
-      'pretty_version' => 'v5.4.13',
-      'version' => '5.4.13.0',
+      'pretty_version' => 'v5.4.19',
+      'version' => '5.4.19.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'ac09569844a9109a5966b9438fc29113ce77cf51',
+      'reference' => '648bfaca6a494f3e22378123bcee2894045dc9d8',
     ),
     'symfony/polyfill-ctype' => 
     array (
@@ -380,12 +380,12 @@ class InstalledVersions
     ),
     'symfony/string' => 
     array (
-      'pretty_version' => 'v5.4.17',
-      'version' => '5.4.17.0',
+      'pretty_version' => 'v5.4.19',
+      'version' => '5.4.19.0',
       'aliases' => 
       array (
       ),
-      'reference' => '55733a8664b8853b003e70251c58bc8cb2d82a6b',
+      'reference' => '0a01071610fd861cc160dfb7e2682ceec66064cb',
     ),
   ),
 );
