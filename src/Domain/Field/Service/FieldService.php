@@ -18,4 +18,8 @@ final class FieldService
     {
         $this->repository = $repository;
     }
+    public function getField(int $id)
+    {
+        return $this->repository->matiere($id);
+    }
 }

@@ -22,6 +22,7 @@ final class MessagesTableCreate extends AbstractMigration
             ->addColumn('id_ecole', 'integer')
             ->addColumn('message', 'string')
             ->addColumn('id_utilisateur', 'integer')
+            ->addColumn('statut', 'boolean', ['default' => false])
             ->addForeignKey('id_ecole', 'ecoles', 'id',
             ['delete' => 'NO_ACTION', 'update' => 'CASCADE'])
             ->addForeignKey('id_utilisateur', 'utilisateurs', 'id',
