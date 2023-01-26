@@ -4,7 +4,7 @@ namespace App\Domain\Student\Service;
 
 use App\Domain\Student\Repository\StudentRepository;
 
-final class ClassStudents
+final class ClassStudentsService
 {
     /**
      * @var StudentRepository

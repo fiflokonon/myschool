@@ -133,4 +133,14 @@ class Repository
             }
         }
     }
+
+    /**
+     * @param $string
+     * @param $int
+     * @return string
+     */
+    public function generateStringId($string, $int) {
+        $prefix = strtoupper(substr($string, 0, 3));
+        return $prefix . $int;
+    }
 }

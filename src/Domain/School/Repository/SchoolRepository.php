@@ -113,15 +113,10 @@ final class SchoolRepository extends \App\Domain\Core\Repository\Repository
     }
 
     /**
-     * @param $string
-     * @param $int
+     * @param string $nom
+     * @param int $id
      * @return string
      */
-    public function generateStringId($string, $int) {
-        $prefix = strtoupper(substr($string, 0, 3));
-        return $prefix . $int;
-    }
-
     public function createUniqueId(string $nom, int $id) {
         $prefix = strtoupper(substr($nom, 0, 3));
         $this->connection->beginTransaction();
