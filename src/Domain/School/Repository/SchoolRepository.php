@@ -43,17 +43,24 @@ final class SchoolRepository extends \App\Domain\Core\Repository\Repository
                 $stmt->bindValue('contact', $contact);
                 $stmt->bindValue('adresse', $adresse);
                 /****************************************
-                 **** EXECUTE CREATE SCHOOL REQUEST **********
+                 **** EXECUTE CREATE SCHOOL REQUEST *****
                  ****************************************/
                 try
                 {
                     if($stmt->execute())
                     {
-                        $sql = "SELECT * FROM ecoles where email = '$email' LIMIT 1 ";
-                        return [
-                            'success' => true,
-                            'response' => $this->connection->query($sql)->fetchAll()[0]
-                        ];
+                        $sql = "SELECT * FROM ecoles where email = '$email' LIMIT 1";
+                        $ecole = $this->connection->query($sql)->fetchAll()[0];
+                        $id_slug = $this->generateStringId($ecole['nom'], $ecole['id']);
+                        $id_ecole = $ecole['id'];
+                        $sql_update = "UPDATE ecoles SET id_slug = $id_slug WHERE id = $id_ecole";
+                        if ($this->connection->prepare($sql_update)->execute())
+                        {
+                            return [
+                                'success' => true,
+                                'response' => $this->connection->query($sql)->fetchAll()[0]
+                            ];
+                        }
                     }
                     else
                     {
@@ -65,11 +72,9 @@ final class SchoolRepository extends \App\Domain\Core\Repository\Repository
                 }
                 catch (HttpException $exception)
                 {
-                    $statusCode = $exception->getCode();
-                    $errorMessage = sprintf('%s %s', $statusCode, $response->getReasonPhrase());
                     return [
                         "success" => false,
-                        "message" => $errorMessage
+                        "message" => $exception->getMessage()
                     ];
                 }
             }
@@ -106,4 +111,31 @@ final class SchoolRepository extends \App\Domain\Core\Repository\Repository
     {
         return $this->deleteOne('schools', $id);
     }
+
+    /**
+     * @param $string
+     * @param $int
+     * @return string
+     */
+    public function generateStringId($string, $int) {
+        $prefix = strtoupper(substr($string, 0, 3));
+        return $prefix . $int;
+    }
+
+    public function createUniqueId(string $nom, int $id) {
+        $prefix = strtoupper(substr($nom, 0, 3));
+        $this->connection->beginTransaction();
+        while (true) {
+            $identifiant = $prefix . $id;
+            $sql = "SELECT * FROM ecoles WHERE id_slug = '$identifiant'";
+            $result = $this->connection->query($sql)->fetchAll();
+            if (empty($result)) {
+                $this->connection->commit();
+                return $identifiant;
+            }
+            $id++;
+        }
+    }
+
+
 }
