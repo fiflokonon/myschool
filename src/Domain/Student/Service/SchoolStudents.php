@@ -4,23 +4,27 @@ namespace App\Domain\Student\Service;
 
 use App\Domain\Student\Repository\StudentRepository;
 
-final class StudentsService
+final class SchoolStudents
 {
     /**
      * @var StudentRepository
      */
     private StudentRepository $repository;
 
+    /**
+     * @param StudentRepository $repository
+     */
     public function __construct(StudentRepository $repository)
     {
         $this->repository = $repository;
     }
 
     /**
-     * @return array|false
+     * @param int $id_ecole
+     * @return array
      */
-    public function getStudents()
+    public function getSchoolStudents(int $id_ecole)
     {
-        return $this->repository->students();
+        return $this->repository->studentsBySchool($id_ecole);
     }
 }

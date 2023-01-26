@@ -28,9 +28,15 @@ class StudentRepository extends \App\Domain\Core\Repository\Repository
     {
         return $this->getOne('eleves', $id);
     }
-    
 
-    function getStudentsBySchool(int $schoolId) {
+    public function createStudent(array $student)
+    {
+        $nom = htmlspecialchars($student['nom']);
+        $prenoms = htmlspecialchars($student['prenoms']);
+
+        
+    }
+    public function studentsBySchool(int $schoolId) {
         $query = "SELECT eleves.* FROM eleves
               JOIN classes ON eleves.id_classe = classes.id
               JOIN ecoles ON classes.id_ecole = ecoles.id
