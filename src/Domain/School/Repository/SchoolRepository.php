@@ -30,13 +30,13 @@ final class SchoolRepository extends \App\Domain\Core\Repository\Repository
         $email = htmlspecialchars($school['email']);
         $contact = htmlspecialchars($school['contact']);
         $adresse = htmlspecialchars($school['adresse']);
-        $sql = "SELECT * FROM ecoles WHERE nom = '$nom' OR contact = '$contact' OR  adresse = '$adresse' OR email = '$email'";
+        $sql = "SELECT * FROM ecoles WHERE nom = '$nom' AND contact = '$contact' AND email = '$email'";
         $back = $this->connection->query($sql)->fetchAll();
         if (empty($back))
         {
             if (!empty($nom) && !empty($email) && !empty($contact) && !empty($adresse))
             {
-                $sql = "INSERT INTO ecoles(nom, email, contact, adresse) VALUES(:nom, :email, : contact, :adresse)";
+                $sql = "INSERT INTO ecoles(nom, email, contact, adresse) VALUES(:nom, :email, :contact, :adresse)";
                 $stmt = $this->connection->prepare($sql);
                 $stmt->bindValue('nom', $nom);
                 $stmt->bindValue('email', $email);
@@ -90,7 +90,7 @@ final class SchoolRepository extends \App\Domain\Core\Repository\Repository
         {
             return [
                 "success" => false,
-                "message" => "Ces infos existent déjà"
+                "message" => "Cette école existe déjà"
             ];
         }
     }
