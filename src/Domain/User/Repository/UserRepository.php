@@ -229,4 +229,16 @@ class UserRepository extends Repository
         }
     }
 
+    public function getMe(string $token)
+    {
+        $decoded = $this->decodeToken($token);
+        if ($decoded)
+        {
+            $id = $decoded->data->id;
+            return $this->user($id);
+        }
+        else{
+            return ["success" => false, "message" => "Unauthorized"];
+        }
+    }
 }

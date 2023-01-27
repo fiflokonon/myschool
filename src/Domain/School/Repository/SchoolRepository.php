@@ -21,7 +21,7 @@ final class SchoolRepository extends \App\Domain\Core\Repository\Repository
      */
     public function schools()
     {
-        return $this->getAll('schools');
+        return $this->getAll('ecoles');
     }
 
     public function createSchool(array $school)

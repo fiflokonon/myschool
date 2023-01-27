@@ -12,6 +12,7 @@ use App\Action\User\UserAction;
 use App\Action\User\DeleteUserAction;
 use App\Action\User\CreateUserAction;
 use App\Action\User\LoginAction;
+use App\Action\User\GetMeAction;
 
 
 use App\Action\School\SchoolsAction;
@@ -159,6 +160,8 @@ return function (App $app) {
         /*** USER-ROUTES ****/
         $app->get('/users/{id}', UserAction::class);
         $app->delete('/users/{id}', DeleteUserAction::class);
+        $app->get('/user-auth', GetMeAction::class);
+
     })->add(LoginMiddleware::class)->add(CorsMiddleware::class);
 
 };
