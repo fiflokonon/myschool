@@ -1,35 +1,41 @@
 <?php
 
-namespace App\Action\Demand;
+namespace App\Action\Note;
 
-use App\Domain\Demand\Service\CreateDemandService;
+use App\Domain\Note\Service\DeleteNoteService;
+use Grpc\Server;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
-final class CreateDemandAction
+final class DeleteNoteAction
 {
     /**
-     * @var CreateDemandService
+     * @var DeleteNoteService
      */
-    private CreateDemandService $service;
+    private DeleteNoteService $service;
 
     /**
-     * @param CreateDemandService $service
+     * @param DeleteNoteService $service
      */
-    public function __construct(CreateDemandService $service)
+    public function __construct(DeleteNoteService $service)
     {
         $this->service = $service;
     }
 
+    /**
+     * @param ServerRequestInterface $request
+     * @param ResponseInterface $response
+     * @param array $args
+     * @return ResponseInterface
+     */
     public function __invoke(
         ServerRequestInterface $request,
         ResponseInterface $response,
         array $args
-    ): ResponseInterface
+    ):ResponseInterface
     {
-        $data = $request->getParsedBody();
         // TODO: Implement __invoke() method.
-        $result = $this->service->addDemand($data, $args['id_utilisateur'], $args['id_ecole']);
+        $result = $this->service->delNote($args['id']);
         //Build HTTP Response
         $response->getBody()->write(json_encode($result));
         return $response

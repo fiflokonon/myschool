@@ -24,9 +24,10 @@ final class CreateDemandService
      * @param int $id_utilisateur
      * @return array|false|mixed|string
      */
-    public function addDemand(array $demand, int $id_utilisateur)
+    public function addDemand(array $demand, int $id_utilisateur, int $id_ecole)
     {
         $demand['id_utilisateur'] = $id_utilisateur;
+        $demand['id_ecole'] = $id_ecole;
         return $this->repository->createDemand($demand);
     }
 }

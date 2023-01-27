@@ -1,22 +1,22 @@
 <?php
 
-namespace App\Action\Demand;
+namespace App\Action\Student;
 
-use App\Domain\Demand\Service\CreateDemandService;
+use App\Domain\Student\Service\SchoolStudentsService;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
-final class CreateDemandAction
+final class SchoolStudentsAction
 {
     /**
-     * @var CreateDemandService
+     * @var SchoolStudentsService
      */
-    private CreateDemandService $service;
+    private SchoolStudentsService $service;
 
     /**
-     * @param CreateDemandService $service
+     * @param SchoolStudentsService $service
      */
-    public function __construct(CreateDemandService $service)
+    public function __construct(SchoolStudentsService $service)
     {
         $this->service = $service;
     }
@@ -25,11 +25,10 @@ final class CreateDemandAction
         ServerRequestInterface $request,
         ResponseInterface $response,
         array $args
-    ): ResponseInterface
+    ):ResponseInterface
     {
-        $data = $request->getParsedBody();
         // TODO: Implement __invoke() method.
-        $result = $this->service->addDemand($data, $args['id_utilisateur'], $args['id_ecole']);
+        $result = $this->service->getSchoolStudents($args['id']);
         //Build HTTP Response
         $response->getBody()->write(json_encode($result));
         return $response

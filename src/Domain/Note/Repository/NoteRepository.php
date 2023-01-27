@@ -73,4 +73,13 @@ class NoteRepository extends \App\Domain\Core\Repository\Repository
         $stmt->bindValue('id_matiere', $id_matiere);
         return $this->exeStatement($stmt, ['success' => true, "message" => "Note ajoutée"]);
     }
+
+    /**
+     * @param int $id
+     * @return array|false|mixed|string
+     */
+    public function deleteNote(int $id)
+    {
+        return $this->deleteOne('notes', $id);
+    }
 }
