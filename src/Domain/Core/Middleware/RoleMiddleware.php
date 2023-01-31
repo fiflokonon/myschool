@@ -29,7 +29,8 @@ class RoleMiddleware
      */
     public function __invoke(
         ServerRequestInterface $request,
-       RequestHandlerInterface $handler
+        RequestHandlerInterface $handler,
+        string $role
     )
     {
         //Get Token
@@ -43,4 +44,13 @@ class RoleMiddleware
             }
     }
 
+    public function checkRole(array $user, string $role)
+    {
+        if (isset($user['role']) && $user['role'] === $role) {
+            return true;
+        }else{
+
+            return false;
+        }
+    }
 }
