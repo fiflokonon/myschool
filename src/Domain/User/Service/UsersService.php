@@ -25,7 +25,6 @@ final class UsersService
     public function getUsers()
     {
         $users = $this->repository->listUsers();
-        die(var_dump($users));
         if (empty($users))
             return [
                 "success" => false,
