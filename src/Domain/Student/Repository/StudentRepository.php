@@ -36,7 +36,7 @@ class StudentRepository extends \App\Domain\Core\Repository\Repository
         $id_classe = htmlspecialchars($student['id_classe']);
         $nom_prenoms_pere = htmlspecialchars($student['nom_prenoms_pere']);
         $nom_prenoms_mere = htmlspecialchars($student['nom_prenoms_mere']);
-        $sql_check = "SELECT * FROM eleves WHERE nom = $nom AND prenoms = $prenoms";
+        $sql_check = "SELECT * FROM eleves WHERE nom = '$nom' AND prenoms = '$prenoms' AND id_classe = $id_classe";
         $check = $this->connection->query($sql_check)->fetchAll();
         if (empty($check))
         {
@@ -50,13 +50,14 @@ class StudentRepository extends \App\Domain\Core\Repository\Repository
             try {
                 if ($stmt->execute())
                 {
-                    $sql_eleve1 = "SELECT * FROM eleves WHERE nom = $nom AND prenoms = $prenoms AND id_classe = $id_classe LIMIT 1";
-                    $eleve1 = $this->connection->query($sql_eleve1)->fetchAll(PDO::FETCH_OBJ)[0];
-                    $matricule = $this->generateMatricule($id_classe, $nom, $eleve1['id']);
-                    $sql_update = "UPDATE eleves SET matricule = '$matricule' WHERE id = $eleve1->id";
+                    $sql_eleve1 = "SELECT * FROM eleves WHERE nom = '$nom' AND prenoms = '$prenoms' AND id_classe = $id_classe LIMIT 1";
+                    $eleve1 = $this->connection->query($sql_eleve1)->fetchAll()[0];
+                    $eleve1_id = $eleve1['id'];
+                    $matricule = $this->generateMatricule($id_classe, $nom, $eleve1_id);
+                    $sql_update = "UPDATE eleves SET matricule = '$matricule' WHERE id = $eleve1_id";
                     if ($this->connection->prepare($sql_update)->execute())
                     {
-                        $sql_last = "SELECT * FROM eleves WHERE id = $eleve1->id LIMIT 1";
+                        $sql_last = "SELECT * FROM eleves WHERE id = $eleve1_id LIMIT 1";
                         return [
                             "success" => true,
                             "response" => $this->connection->query($sql_last)->fetchAll()[0]

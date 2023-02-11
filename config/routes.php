@@ -155,7 +155,7 @@ return function (App $app) {
         $app->delete('/students/{id}', DeleteStudentAction::class);
         $app->get('/classes/{id}/students', ClassStudentsAction::class);
         $app->post('/classes/{id}/students', CreateStudentAction::class);
-        $app->get('/ecoles/{id}/students', SchoolStudentsAction::class);
+        $app->get('/schools/{id}/students', SchoolStudentsAction::class);
 
         /*** USER-ROUTES ****/
         $app->get('/users/{id}', UserAction::class);

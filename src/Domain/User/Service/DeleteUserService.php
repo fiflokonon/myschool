@@ -12,6 +12,14 @@ final class DeleteUserService
     private UserRepository $repository;
 
     /**
+     * @param UserRepository $repository
+     */
+    public function __construct(UserRepository $repository)
+    {
+        $this->repository = $repository;
+    }
+
+    /**
      * @param int $id
      * @return array|false|mixed|string
      */

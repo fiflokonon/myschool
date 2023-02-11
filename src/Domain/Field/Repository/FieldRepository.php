@@ -37,7 +37,7 @@ class FieldRepository extends \App\Domain\Core\Repository\Repository
     {
         $matiere = htmlspecialchars($field['matiere']);
         $id_ecole = htmlspecialchars($field['id_ecole']);
-        $check_request = "SELECT * FROM matieres WHERE id_ecole = $id_ecole AND matiere = $matiere";
+        $check_request = "SELECT * FROM matieres WHERE id_ecole = $id_ecole AND matiere = '$matiere'";
         try {
             $check = $this->connection->query($check_request)->fetchAll();
             if (empty($check))

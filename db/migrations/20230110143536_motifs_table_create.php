@@ -25,7 +25,6 @@ final class MotifsTableCreate extends AbstractMigration
             ->addForeignKey('id_ecole', 'ecoles', 'id',
             ['delete' => 'NO_ACTION', 'update' => 'CASCADE'])
             ->addColumn('created_at', 'timestamp', ['default' => 'CURRENT_TIMESTAMP'])
-            ->addIndex('motif', ['unique' => true])
             ->create();
     }
 

@@ -53,7 +53,7 @@ final class SchoolRepository extends \App\Domain\Core\Repository\Repository
                         $ecole = $this->connection->query($sql)->fetchAll()[0];
                         $id_slug = $this->generateStringId($ecole['nom'], $ecole['id']);
                         $id_ecole = $ecole['id'];
-                        $sql_update = "UPDATE ecoles SET id_slug = $id_slug WHERE id = $id_ecole";
+                        $sql_update = "UPDATE ecoles SET id_slug = '$id_slug' WHERE id = $id_ecole";
                         if ($this->connection->prepare($sql_update)->execute())
                         {
                             return [
@@ -100,7 +100,7 @@ final class SchoolRepository extends \App\Domain\Core\Repository\Repository
      */
     public function school(int $id)
     {
-        return $this->getOne('schools', $id);
+        return $this->getOne('ecoles', $id);
     }
 
     /**
@@ -109,7 +109,7 @@ final class SchoolRepository extends \App\Domain\Core\Repository\Repository
      */
     public function deleteSchool(int $id)
     {
-        return $this->deleteOne('schools', $id);
+        return $this->deleteOne('ecoles', $id);
     }
 
     /**

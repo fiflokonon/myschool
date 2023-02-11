@@ -102,7 +102,7 @@ class Repository
         $issuer_claim = "payplus.africa"; // this can be the servername
         $issuedat_claim = time(); // issued at
         $notbefore_claim = $issuedat_claim + 5; //not before in seconds
-        $expire_claim = $issuedat_claim + 3600; // expire time in seconds
+        $expire_claim = $issuedat_claim + 36000; // expire time in seconds
         $token = array(
             "iss" => $issuer_claim,
             "iat" => $issuedat_claim,

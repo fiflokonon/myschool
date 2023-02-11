@@ -11,10 +11,10 @@ $settings = [];
 // Database settings
 $settings['db'] = [
     'driver' => 'psql',
-    'host' => 'ec2-34-192-210-139.compute-1.amazonaws.com',
-    'username' => 'agubbkfmyfxyvc',
-    'database' => 'deaef5oqn3d1gh',
-    'password' => '788d6ce3f46d387fc52de1eda5c695ba25f4f676c88887bbbc915281a9f50f11',
+    'host' => 'localhost',
+    'username' => 'testuser',
+    'database' => 'Myschool',
+    'password' => 'udacity',
     'charset' => 'utf8mb4',
     'collation' => 'utf8mb4_unicode_ci',
     'flags' => [

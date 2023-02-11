@@ -21,6 +21,12 @@ final class SchoolFieldsAction
         $this->service = $service;
     }
 
+    /**
+     * @param ServerRequestInterface $request
+     * @param ResponseInterface $response
+     * @param array $args
+     * @return ResponseInterface
+     */
     public function __invoke(
         ServerRequestInterface $request,
         ResponseInterface $response,
@@ -29,6 +35,10 @@ final class SchoolFieldsAction
     {
         // TODO: Implement __invoke() method.
         $result = $this->service->getSchoolFields($args['id']);
-
+        //Build HTTP Response
+        $response->getBody()->write(json_encode($result));
+        return $response
+            ->withHeader('Content-Type', 'application/json')
+            ->withStatus(200);
     }
 }

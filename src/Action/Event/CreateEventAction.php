@@ -37,6 +37,7 @@ final class CreateEventAction
         $data = $request->getParsedBody();
         $data['id_ecole'] = $args['id'];
         // TODO: Implement __invoke() method.
+
         $result  = $this->service->addEvent($data);
         //Build HTTP Response
         $response->getBody()->write(json_encode($result));

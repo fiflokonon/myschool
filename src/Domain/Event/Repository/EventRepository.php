@@ -49,7 +49,7 @@ final class EventRepository extends \App\Domain\Core\Repository\Repository
         $lieu = htmlspecialchars($event['lieu']);
         $date_de_debut = htmlspecialchars($event['date_de_debut']);
         $date_de_fin = htmlspecialchars($event['date_de_fin']);
-        $id_ecole = $event['id'];
+        $id_ecole = $event['id_ecole'];
         if(strtotime($date_de_debut) >= (time()-(60*60*24)) && strtotime($date_de_fin) >= (time()-(60*60*24)))
         {
             if (strtotime($date_de_fin) >= strtotime($date_de_debut))
@@ -62,7 +62,7 @@ final class EventRepository extends \App\Domain\Core\Repository\Repository
                 $stmt->bindValue('date_debut_evenement', $date_de_debut);
                 $stmt->bindValue('date_fin_evenement', $date_de_fin);
                 $stmt->bindValue('id_ecole', $id_ecole);
-                $sql1 = "SELECT * FROM evenements WHERE id_ecole = $id_ecole AND motif = $titre";
+                $sql1 = "SELECT * FROM evenements WHERE id_ecole = $id_ecole AND motif = '$titre'";
                 $green = $this->connection->query($sql1)->fetchAll();
                 if (empty($green))
                 {
@@ -70,7 +70,7 @@ final class EventRepository extends \App\Domain\Core\Repository\Repository
                     {
                         if($stmt->execute())
                         {
-                            $sql2 = "SELECT * FROM evenements where id_ecole = $id_ecole AND motif = $titre LIMIT 1";
+                            $sql2 = "SELECT * FROM evenements where id_ecole = $id_ecole AND motif = '$titre' LIMIT 1";
                             $evenement = $this->connection->query($sql2)->fetchAll();
                             return [
                                 "success" => true,

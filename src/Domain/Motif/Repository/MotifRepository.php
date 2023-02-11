@@ -51,7 +51,7 @@ final class MotifRepository extends \App\Domain\Core\Repository\Repository
         $montant_motif = htmlspecialchars($motif['montant_motif']);
         $id_ecole = htmlspecialchars($motif['id_ecole']);
         $sql = "SELECT * FROM motifs WHERE id_ecole = $id_ecole AND motif = '$motif_nom'";
-        $get = $this->connection->query($sql);
+        $get = $this->connection->query($sql)->fetchAll();
         if (empty($get))
         {
             if (!empty($motif_nom) && !empty($montant_motif) && !empty($id_ecole))
