@@ -26,7 +26,7 @@ final class SchoolService
     public function getSchool(int $id)
     {
         $back = $this->repository->school($id);
-        if (isset($back) && is_null($back))
+        if (empty($back) && is_null($back))
         {
             return ['success' => false, "message" => "Cette école n'existe pas"];
         }
