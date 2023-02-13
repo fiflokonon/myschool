@@ -1,0 +1,1129 @@
+{
+	"info": {
+		"_postman_id": "a90abcee-d443-499a-9d12-63ece96613f8",
+		"name": "Myschool_production",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17010973"
+	},
+	"item": [
+		{
+			"name": "User-Utilsateur",
+			"item": [
+				{
+					"name": "Inscription",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nom\": \"LOKONON\",\n    \"prenoms\": \"Arnaud\",\n    \"email\": \"fif@gmail.com\",\n    \"tel\" : \"68947612\",\n    \"sexe\": \"M\",\n    \"mot_de_passe\": \"Jesus\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/signup",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Connexion",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"fif@gmail.com\",\n    \"mot_de_passe\" : \"Jesus\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Utilisateur par Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwYXlwbHVzLmFmcmljYSIsImlhdCI6MTY3NDgzMTA2MCwibmJmIjoxNjc0ODMxMDY1LCJleHAiOjE2NzQ4MzQ2NjAsImRhdGEiOnsiaWQiOjEsInByZW5vbXMiOiJBcmlzdG9mYW5lIiwibm9tIjoiTE9LTyIsImVtYWlsIjoiYXJpc0BnbWFpbC5jb20iLCJ0ZWwiOiI2ODk0NzYxNCIsInNleGUiOiJNIiwiaWRfc2x1ZyI6IjA3MzNBNzYwRjgiLCJyb2xlIjpudWxsLCJpZF9lY29sZSI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDEtMjcgMTU6NDI6MDkuOTgwMzIyIn19.58dm4FcwWWbrv8peYC-DGMVI0zk5RnjABMcexbFDXJg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Utilisateur Connecté",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwYXlwbHVzLmFmcmljYSIsImlhdCI6MTY3NDgzMTA2MCwibmJmIjoxNjc0ODMxMDY1LCJleHAiOjE2NzQ4MzQ2NjAsImRhdGEiOnsiaWQiOjEsInByZW5vbXMiOiJBcmlzdG9mYW5lIiwibm9tIjoiTE9LTyIsImVtYWlsIjoiYXJpc0BnbWFpbC5jb20iLCJ0ZWwiOiI2ODk0NzYxNCIsInNleGUiOiJNIiwiaWRfc2x1ZyI6IjA3MzNBNzYwRjgiLCJyb2xlIjpudWxsLCJpZF9lY29sZSI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDEtMjcgMTU6NDI6MDkuOTgwMzIyIn19.58dm4FcwWWbrv8peYC-DGMVI0zk5RnjABMcexbFDXJg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/user-auth",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user-auth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Liste_Complete_Utilisateurs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Supprimer_utilisateur_par_id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwYXlwbHVzLmFmcmljYSIsImlhdCI6MTY3NDgzMTg2MiwibmJmIjoxNjc0ODMxODY3LCJleHAiOjE2NzQ4MzU0NjIsImRhdGEiOnsiaWQiOjEsInByZW5vbXMiOiJBcmlzdG9mYW5lIiwibm9tIjoiTE9LTyIsImVtYWlsIjoiYXJpc0BnbWFpbC5jb20iLCJ0ZWwiOiI2ODk0NzYxNCIsInNleGUiOiJNIiwiaWRfc2x1ZyI6IjJCMEM4RTQ0QTQiLCJyb2xlIjpudWxsLCJpZF9lY29sZSI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDEtMjcgMTY6MDQ6MTYuMTI5ODQ3In19.XEKZBCMBGq--xzV2y4XQR-FdahgkNafx7keYmH3JlN8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users/2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "School-Ecole",
+			"item": [
+				{
+					"name": "Liste_complete_ecole",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwYXlwbHVzLmFmcmljYSIsImlhdCI6MTY3NDgxODQ2OCwibmJmIjoxNjc0ODE4NDczLCJleHAiOjE2NzQ4MjIwNjgsImRhdGEiOnsiaWQiOjEsInByZW5vbXMiOiJNYXJlbCIsIm5vbSI6IkFHT05HTE8iLCJlbWFpbCI6Im1hcmVsQGdtYWlsLmNvbSIsInRlbCI6IjU4NzQ5NjMzIiwic2V4ZSI6Ik0iLCJpZF9zbHVnIjoiNUFBMDQwNDRFQSIsInJvbGUiOm51bGwsImlkX2Vjb2xlIjpudWxsLCJjcmVhdGVkX2F0IjoiMjAyMy0wMS0yNyAxMDoyMDo0My4xOTcxMSJ9fQ.JTiy0LcK8iDLneq8zZr8eDBah6Kdw4fof0I7UR3PB1o",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/schools",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"schools"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Création_Ecole",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwYXlwbHVzLmFmcmljYSIsImlhdCI6MTY3NDgzMTg2MiwibmJmIjoxNjc0ODMxODY3LCJleHAiOjE2NzQ4MzU0NjIsImRhdGEiOnsiaWQiOjEsInByZW5vbXMiOiJBcmlzdG9mYW5lIiwibm9tIjoiTE9LTyIsImVtYWlsIjoiYXJpc0BnbWFpbC5jb20iLCJ0ZWwiOiI2ODk0NzYxNCIsInNleGUiOiJNIiwiaWRfc2x1ZyI6IjJCMEM4RTQ0QTQiLCJyb2xlIjpudWxsLCJpZF9lY29sZSI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDEtMjcgMTY6MDQ6MTYuMTI5ODQ3In19.XEKZBCMBGq--xzV2y4XQR-FdahgkNafx7keYmH3JlN8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nom\" : \"MAGNIFICAT\",\n    \"email\" : \"mag@gmail.com\",\n    \"contact\" : \"96235221\",\n    \"adresse\" : \"Missérété\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/schools",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"schools"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Infos_ecole_par_id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwYXlwbHVzLmFmcmljYSIsImlhdCI6MTY3NDgzMTg2MiwibmJmIjoxNjc0ODMxODY3LCJleHAiOjE2NzQ4MzU0NjIsImRhdGEiOnsiaWQiOjEsInByZW5vbXMiOiJBcmlzdG9mYW5lIiwibm9tIjoiTE9LTyIsImVtYWlsIjoiYXJpc0BnbWFpbC5jb20iLCJ0ZWwiOiI2ODk0NzYxNCIsInNleGUiOiJNIiwiaWRfc2x1ZyI6IjJCMEM4RTQ0QTQiLCJyb2xlIjpudWxsLCJpZF9lY29sZSI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDEtMjcgMTY6MDQ6MTYuMTI5ODQ3In19.XEKZBCMBGq--xzV2y4XQR-FdahgkNafx7keYmH3JlN8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/schools/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"schools",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Supprimer_Utilisateur_par_id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwYXlwbHVzLmFmcmljYSIsImlhdCI6MTY3NDgzMTg2MiwibmJmIjoxNjc0ODMxODY3LCJleHAiOjE2NzQ4MzU0NjIsImRhdGEiOnsiaWQiOjEsInByZW5vbXMiOiJBcmlzdG9mYW5lIiwibm9tIjoiTE9LTyIsImVtYWlsIjoiYXJpc0BnbWFpbC5jb20iLCJ0ZWwiOiI2ODk0NzYxNCIsInNleGUiOiJNIiwiaWRfc2x1ZyI6IjJCMEM4RTQ0QTQiLCJyb2xlIjpudWxsLCJpZF9lY29sZSI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDEtMjcgMTY6MDQ6MTYuMTI5ODQ3In19.XEKZBCMBGq--xzV2y4XQR-FdahgkNafx7keYmH3JlN8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/schools/2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"schools",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Class-Classe",
+			"item": [
+				{
+					"name": "Liste_complete_classes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwYXlwbHVzLmFmcmljYSIsImlhdCI6MTY3NDgzMTg2MiwibmJmIjoxNjc0ODMxODY3LCJleHAiOjE2NzQ4MzU0NjIsImRhdGEiOnsiaWQiOjEsInByZW5vbXMiOiJBcmlzdG9mYW5lIiwibm9tIjoiTE9LTyIsImVtYWlsIjoiYXJpc0BnbWFpbC5jb20iLCJ0ZWwiOiI2ODk0NzYxNCIsInNleGUiOiJNIiwiaWRfc2x1ZyI6IjJCMEM4RTQ0QTQiLCJyb2xlIjpudWxsLCJpZF9lY29sZSI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDEtMjcgMTY6MDQ6MTYuMTI5ODQ3In19.XEKZBCMBGq--xzV2y4XQR-FdahgkNafx7keYmH3JlN8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/classes",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"classes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Créer_classe_avec_id_ecole",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwYXlwbHVzLmFmcmljYSIsImlhdCI6MTY3NDgzMTg2MiwibmJmIjoxNjc0ODMxODY3LCJleHAiOjE2NzQ4MzU0NjIsImRhdGEiOnsiaWQiOjEsInByZW5vbXMiOiJBcmlzdG9mYW5lIiwibm9tIjoiTE9LTyIsImVtYWlsIjoiYXJpc0BnbWFpbC5jb20iLCJ0ZWwiOiI2ODk0NzYxNCIsInNleGUiOiJNIiwiaWRfc2x1ZyI6IjJCMEM4RTQ0QTQiLCJyb2xlIjpudWxsLCJpZF9lY29sZSI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDEtMjcgMTY6MDQ6MTYuMTI5ODQ3In19.XEKZBCMBGq--xzV2y4XQR-FdahgkNafx7keYmH3JlN8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nom\": \"CP\",\n    \"scolarite\" : 150000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/schools/1/classes",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"schools",
+								"1",
+								"classes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Classe_par_id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwYXlwbHVzLmFmcmljYSIsImlhdCI6MTY3NDgzMTg2MiwibmJmIjoxNjc0ODMxODY3LCJleHAiOjE2NzQ4MzU0NjIsImRhdGEiOnsiaWQiOjEsInByZW5vbXMiOiJBcmlzdG9mYW5lIiwibm9tIjoiTE9LTyIsImVtYWlsIjoiYXJpc0BnbWFpbC5jb20iLCJ0ZWwiOiI2ODk0NzYxNCIsInNleGUiOiJNIiwiaWRfc2x1ZyI6IjJCMEM4RTQ0QTQiLCJyb2xlIjpudWxsLCJpZF9lY29sZSI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDEtMjcgMTY6MDQ6MTYuMTI5ODQ3In19.XEKZBCMBGq--xzV2y4XQR-FdahgkNafx7keYmH3JlN8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/classes/2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"classes",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Supprimer_Classe_id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwYXlwbHVzLmFmcmljYSIsImlhdCI6MTY3NDgzMTg2MiwibmJmIjoxNjc0ODMxODY3LCJleHAiOjE2NzQ4MzU0NjIsImRhdGEiOnsiaWQiOjEsInByZW5vbXMiOiJBcmlzdG9mYW5lIiwibm9tIjoiTE9LTyIsImVtYWlsIjoiYXJpc0BnbWFpbC5jb20iLCJ0ZWwiOiI2ODk0NzYxNCIsInNleGUiOiJNIiwiaWRfc2x1ZyI6IjJCMEM4RTQ0QTQiLCJyb2xlIjpudWxsLCJpZF9lY29sZSI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDEtMjcgMTY6MDQ6MTYuMTI5ODQ3In19.XEKZBCMBGq--xzV2y4XQR-FdahgkNafx7keYmH3JlN8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/classes/2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"classes",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Liste_des_classes_par_ecole_id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwYXlwbHVzLmFmcmljYSIsImlhdCI6MTY3NDgzMTg2MiwibmJmIjoxNjc0ODMxODY3LCJleHAiOjE2NzQ4MzU0NjIsImRhdGEiOnsiaWQiOjEsInByZW5vbXMiOiJBcmlzdG9mYW5lIiwibm9tIjoiTE9LTyIsImVtYWlsIjoiYXJpc0BnbWFpbC5jb20iLCJ0ZWwiOiI2ODk0NzYxNCIsInNleGUiOiJNIiwiaWRfc2x1ZyI6IjJCMEM4RTQ0QTQiLCJyb2xlIjpudWxsLCJpZF9lY29sZSI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDEtMjcgMTY6MDQ6MTYuMTI5ODQ3In19.XEKZBCMBGq--xzV2y4XQR-FdahgkNafx7keYmH3JlN8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/schools/1/classes",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"schools",
+								"1",
+								"classes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Student-Eleve",
+			"item": [
+				{
+					"name": "Listes_de_tous_les_eleves",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwYXlwbHVzLmFmcmljYSIsImlhdCI6MTY3NDgzNTU3NywibmJmIjoxNjc0ODM1NTgyLCJleHAiOjE2NzQ4MzkxNzcsImRhdGEiOnsiaWQiOjEsInByZW5vbXMiOiJBcmlzdG9mYW5lIiwibm9tIjoiTE9LTyIsImVtYWlsIjoiYXJpc0BnbWFpbC5jb20iLCJ0ZWwiOiI2ODk0NzYxNCIsInNleGUiOiJNIiwiaWRfc2x1ZyI6IjJCMEM4RTQ0QTQiLCJyb2xlIjpudWxsLCJpZF9lY29sZSI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDEtMjcgMTY6MDQ6MTYuMTI5ODQ3In19.uAYFjLhbNRfP7YWqVIEWEwsHxIvyU54zhXnbrQ8PPQ0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/students",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eleve_par_id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwYXlwbHVzLmFmcmljYSIsImlhdCI6MTY3NDgzNTU3NywibmJmIjoxNjc0ODM1NTgyLCJleHAiOjE2NzQ4MzkxNzcsImRhdGEiOnsiaWQiOjEsInByZW5vbXMiOiJBcmlzdG9mYW5lIiwibm9tIjoiTE9LTyIsImVtYWlsIjoiYXJpc0BnbWFpbC5jb20iLCJ0ZWwiOiI2ODk0NzYxNCIsInNleGUiOiJNIiwiaWRfc2x1ZyI6IjJCMEM4RTQ0QTQiLCJyb2xlIjpudWxsLCJpZF9lY29sZSI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDEtMjcgMTY6MDQ6MTYuMTI5ODQ3In19.uAYFjLhbNRfP7YWqVIEWEwsHxIvyU54zhXnbrQ8PPQ0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/students/2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"students",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ajouter_un_eleve_dans_une_classe_avec_id_classe",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwYXlwbHVzLmFmcmljYSIsImlhdCI6MTY3NDgzNTU3NywibmJmIjoxNjc0ODM1NTgyLCJleHAiOjE2NzQ4MzkxNzcsImRhdGEiOnsiaWQiOjEsInByZW5vbXMiOiJBcmlzdG9mYW5lIiwibm9tIjoiTE9LTyIsImVtYWlsIjoiYXJpc0BnbWFpbC5jb20iLCJ0ZWwiOiI2ODk0NzYxNCIsInNleGUiOiJNIiwiaWRfc2x1ZyI6IjJCMEM4RTQ0QTQiLCJyb2xlIjpudWxsLCJpZF9lY29sZSI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDEtMjcgMTY6MDQ6MTYuMTI5ODQ3In19.uAYFjLhbNRfP7YWqVIEWEwsHxIvyU54zhXnbrQ8PPQ0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nom\": \"BOUNOU\",\n    \"prenoms\": \"Zoey\",\n    \"nom_prenoms_pere\":\"GBODOGBE Isaac\",\n    \"nom_prenoms_mere\":\"SOSSOU Mamie\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/classes/1/students",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"classes",
+								"1",
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Liste_des_eleves_par_classe_avec_class_id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwYXlwbHVzLmFmcmljYSIsImlhdCI6MTY3NDgzNTU3NywibmJmIjoxNjc0ODM1NTgyLCJleHAiOjE2NzQ4MzkxNzcsImRhdGEiOnsiaWQiOjEsInByZW5vbXMiOiJBcmlzdG9mYW5lIiwibm9tIjoiTE9LTyIsImVtYWlsIjoiYXJpc0BnbWFpbC5jb20iLCJ0ZWwiOiI2ODk0NzYxNCIsInNleGUiOiJNIiwiaWRfc2x1ZyI6IjJCMEM4RTQ0QTQiLCJyb2xlIjpudWxsLCJpZF9lY29sZSI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDEtMjcgMTY6MDQ6MTYuMTI5ODQ3In19.uAYFjLhbNRfP7YWqVIEWEwsHxIvyU54zhXnbrQ8PPQ0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/classes/1/students",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"classes",
+								"1",
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Supprimer_Eleve_par_id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwYXlwbHVzLmFmcmljYSIsImlhdCI6MTY3NDgzNTU3NywibmJmIjoxNjc0ODM1NTgyLCJleHAiOjE2NzQ4MzkxNzcsImRhdGEiOnsiaWQiOjEsInByZW5vbXMiOiJBcmlzdG9mYW5lIiwibm9tIjoiTE9LTyIsImVtYWlsIjoiYXJpc0BnbWFpbC5jb20iLCJ0ZWwiOiI2ODk0NzYxNCIsInNleGUiOiJNIiwiaWRfc2x1ZyI6IjJCMEM4RTQ0QTQiLCJyb2xlIjpudWxsLCJpZF9lY29sZSI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDEtMjcgMTY6MDQ6MTYuMTI5ODQ3In19.uAYFjLhbNRfP7YWqVIEWEwsHxIvyU54zhXnbrQ8PPQ0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/students/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"students",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Liste_des_eleves_par_ecole_id_ecole",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwYXlwbHVzLmFmcmljYSIsImlhdCI6MTY3NDgzNTU3NywibmJmIjoxNjc0ODM1NTgyLCJleHAiOjE2NzQ4MzkxNzcsImRhdGEiOnsiaWQiOjEsInByZW5vbXMiOiJBcmlzdG9mYW5lIiwibm9tIjoiTE9LTyIsImVtYWlsIjoiYXJpc0BnbWFpbC5jb20iLCJ0ZWwiOiI2ODk0NzYxNCIsInNleGUiOiJNIiwiaWRfc2x1ZyI6IjJCMEM4RTQ0QTQiLCJyb2xlIjpudWxsLCJpZF9lY29sZSI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDEtMjcgMTY6MDQ6MTYuMTI5ODQ3In19.uAYFjLhbNRfP7YWqVIEWEwsHxIvyU54zhXnbrQ8PPQ0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/schools/1/students",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"schools",
+								"1",
+								"students"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Matiere",
+			"item": [
+				{
+					"name": "Liste des matieres",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwYXlwbHVzLmFmcmljYSIsImlhdCI6MTY3NDgzNTU3NywibmJmIjoxNjc0ODM1NTgyLCJleHAiOjE2NzQ4MzkxNzcsImRhdGEiOnsiaWQiOjEsInByZW5vbXMiOiJBcmlzdG9mYW5lIiwibm9tIjoiTE9LTyIsImVtYWlsIjoiYXJpc0BnbWFpbC5jb20iLCJ0ZWwiOiI2ODk0NzYxNCIsInNleGUiOiJNIiwiaWRfc2x1ZyI6IjJCMEM4RTQ0QTQiLCJyb2xlIjpudWxsLCJpZF9lY29sZSI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDEtMjcgMTY6MDQ6MTYuMTI5ODQ3In19.uAYFjLhbNRfP7YWqVIEWEwsHxIvyU54zhXnbrQ8PPQ0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/matieres",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"matieres"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Matiere_avec_id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwYXlwbHVzLmFmcmljYSIsImlhdCI6MTY3NDgzNTU3NywibmJmIjoxNjc0ODM1NTgyLCJleHAiOjE2NzQ4MzkxNzcsImRhdGEiOnsiaWQiOjEsInByZW5vbXMiOiJBcmlzdG9mYW5lIiwibm9tIjoiTE9LTyIsImVtYWlsIjoiYXJpc0BnbWFpbC5jb20iLCJ0ZWwiOiI2ODk0NzYxNCIsInNleGUiOiJNIiwiaWRfc2x1ZyI6IjJCMEM4RTQ0QTQiLCJyb2xlIjpudWxsLCJpZF9lY29sZSI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDEtMjcgMTY6MDQ6MTYuMTI5ODQ3In19.uAYFjLhbNRfP7YWqVIEWEwsHxIvyU54zhXnbrQ8PPQ0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/matieres/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"matieres",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Supprimer_matiere_avec_id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwYXlwbHVzLmFmcmljYSIsImlhdCI6MTY3NTE4NTg5MSwibmJmIjoxNjc1MTg1ODk2LCJleHAiOjE2NzUyMjE4OTEsImRhdGEiOnsiaWQiOjQsInByZW5vbXMiOiJBcm5hdWQiLCJub20iOiJMT0tPTk9OIiwiZW1haWwiOiJmaWZAZ21haWwuY29tIiwidGVsIjoiNjg5NDc2MTIiLCJzZXhlIjoiTSIsImlkX3NsdWciOiIwRTYxRDk1NjA5Iiwicm9sZSI6bnVsbCwiaWRfZWNvbGUiOm51bGwsImNyZWF0ZWRfYXQiOiIyMDIzLTAxLTMxIDE4OjI0OjEyLjI2Mjk4NSJ9fQ.XImRJrFba1UADXscql4MsULdmjP1HJQKflKnvrJCB_M",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/matieres/2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"matieres",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Créer une matiere dans une ecole_id_ecole",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwYXlwbHVzLmFmcmljYSIsImlhdCI6MTY3NDgzOTY4MywibmJmIjoxNjc0ODM5Njg4LCJleHAiOjE2NzQ4NzU2ODMsImRhdGEiOnsiaWQiOjEsInByZW5vbXMiOiJBcmlzdG9mYW5lIiwibm9tIjoiTE9LTyIsImVtYWlsIjoiYXJpc0BnbWFpbC5jb20iLCJ0ZWwiOiI2ODk0NzYxNCIsInNleGUiOiJNIiwiaWRfc2x1ZyI6IjJCMEM4RTQ0QTQiLCJyb2xlIjpudWxsLCJpZF9lY29sZSI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDEtMjcgMTY6MDQ6MTYuMTI5ODQ3In19.ZJMjXTOzajWRJF6KhFteY3lMZYWklDvx-ghRUC3PnMo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"matiere\" : \"Science\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/schools/1/matieres",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"schools",
+								"1",
+								"matieres"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Liste des matieres par ecoles",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwYXlwbHVzLmFmcmljYSIsImlhdCI6MTY3NDgzOTY4MywibmJmIjoxNjc0ODM5Njg4LCJleHAiOjE2NzQ4NzU2ODMsImRhdGEiOnsiaWQiOjEsInByZW5vbXMiOiJBcmlzdG9mYW5lIiwibm9tIjoiTE9LTyIsImVtYWlsIjoiYXJpc0BnbWFpbC5jb20iLCJ0ZWwiOiI2ODk0NzYxNCIsInNleGUiOiJNIiwiaWRfc2x1ZyI6IjJCMEM4RTQ0QTQiLCJyb2xlIjpudWxsLCJpZF9lY29sZSI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDEtMjcgMTY6MDQ6MTYuMTI5ODQ3In19.ZJMjXTOzajWRJF6KhFteY3lMZYWklDvx-ghRUC3PnMo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/schools/1/matieres",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"schools",
+								"1",
+								"matieres"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Motifs",
+			"item": [
+				{
+					"name": "Liste des motifs",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwYXlwbHVzLmFmcmljYSIsImlhdCI6MTY3NDgzOTY4MywibmJmIjoxNjc0ODM5Njg4LCJleHAiOjE2NzQ4NzU2ODMsImRhdGEiOnsiaWQiOjEsInByZW5vbXMiOiJBcmlzdG9mYW5lIiwibm9tIjoiTE9LTyIsImVtYWlsIjoiYXJpc0BnbWFpbC5jb20iLCJ0ZWwiOiI2ODk0NzYxNCIsInNleGUiOiJNIiwiaWRfc2x1ZyI6IjJCMEM4RTQ0QTQiLCJyb2xlIjpudWxsLCJpZF9lY29sZSI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDEtMjcgMTY6MDQ6MTYuMTI5ODQ3In19.ZJMjXTOzajWRJF6KhFteY3lMZYWklDvx-ghRUC3PnMo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/motifs",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"motifs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Motif avec id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwYXlwbHVzLmFmcmljYSIsImlhdCI6MTY3NDgzOTY4MywibmJmIjoxNjc0ODM5Njg4LCJleHAiOjE2NzQ4NzU2ODMsImRhdGEiOnsiaWQiOjEsInByZW5vbXMiOiJBcmlzdG9mYW5lIiwibm9tIjoiTE9LTyIsImVtYWlsIjoiYXJpc0BnbWFpbC5jb20iLCJ0ZWwiOiI2ODk0NzYxNCIsInNleGUiOiJNIiwiaWRfc2x1ZyI6IjJCMEM4RTQ0QTQiLCJyb2xlIjpudWxsLCJpZF9lY29sZSI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDEtMjcgMTY6MDQ6MTYuMTI5ODQ3In19.ZJMjXTOzajWRJF6KhFteY3lMZYWklDvx-ghRUC3PnMo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/motifs/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"motifs",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Supprimer_Motif_avec_id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwYXlwbHVzLmFmcmljYSIsImlhdCI6MTY3NDgzOTY4MywibmJmIjoxNjc0ODM5Njg4LCJleHAiOjE2NzQ4NzU2ODMsImRhdGEiOnsiaWQiOjEsInByZW5vbXMiOiJBcmlzdG9mYW5lIiwibm9tIjoiTE9LTyIsImVtYWlsIjoiYXJpc0BnbWFpbC5jb20iLCJ0ZWwiOiI2ODk0NzYxNCIsInNleGUiOiJNIiwiaWRfc2x1ZyI6IjJCMEM4RTQ0QTQiLCJyb2xlIjpudWxsLCJpZF9lY29sZSI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDEtMjcgMTY6MDQ6MTYuMTI5ODQ3In19.ZJMjXTOzajWRJF6KhFteY3lMZYWklDvx-ghRUC3PnMo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/motifs/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"motifs",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Création_de_motif_avec_id_ecole",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwYXlwbHVzLmFmcmljYSIsImlhdCI6MTY3NTE4NTg5MSwibmJmIjoxNjc1MTg1ODk2LCJleHAiOjE2NzUyMjE4OTEsImRhdGEiOnsiaWQiOjQsInByZW5vbXMiOiJBcm5hdWQiLCJub20iOiJMT0tPTk9OIiwiZW1haWwiOiJmaWZAZ21haWwuY29tIiwidGVsIjoiNjg5NDc2MTIiLCJzZXhlIjoiTSIsImlkX3NsdWciOiIwRTYxRDk1NjA5Iiwicm9sZSI6bnVsbCwiaWRfZWNvbGUiOm51bGwsImNyZWF0ZWRfYXQiOiIyMDIzLTAxLTMxIDE4OjI0OjEyLjI2Mjk4NSJ9fQ.XImRJrFba1UADXscql4MsULdmjP1HJQKflKnvrJCB_M",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"motif\" : \"Sortie pédagogique\",\n    \"montant_motif\": 8000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/schools/1/motifs",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"schools",
+								"1",
+								"motifs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Liste des motifs par ecole",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwYXlwbHVzLmFmcmljYSIsImlhdCI6MTY3NDgzOTY4MywibmJmIjoxNjc0ODM5Njg4LCJleHAiOjE2NzQ4NzU2ODMsImRhdGEiOnsiaWQiOjEsInByZW5vbXMiOiJBcmlzdG9mYW5lIiwibm9tIjoiTE9LTyIsImVtYWlsIjoiYXJpc0BnbWFpbC5jb20iLCJ0ZWwiOiI2ODk0NzYxNCIsInNleGUiOiJNIiwiaWRfc2x1ZyI6IjJCMEM4RTQ0QTQiLCJyb2xlIjpudWxsLCJpZF9lY29sZSI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDEtMjcgMTY6MDQ6MTYuMTI5ODQ3In19.ZJMjXTOzajWRJF6KhFteY3lMZYWklDvx-ghRUC3PnMo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/schools/1/motifs",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"schools",
+								"1",
+								"motifs"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Evenement",
+			"item": [
+				{
+					"name": "Liste_complete_des_events",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwYXlwbHVzLmFmcmljYSIsImlhdCI6MTY3NTU2MDQwMywibmJmIjoxNjc1NTYwNDA4LCJleHAiOjE2NzU1OTY0MDMsImRhdGEiOnsiaWQiOjQsInByZW5vbXMiOiJBcm5hdWQiLCJub20iOiJMT0tPTk9OIiwiZW1haWwiOiJmaWZAZ21haWwuY29tIiwidGVsIjoiNjg5NDc2MTIiLCJzZXhlIjoiTSIsImlkX3NsdWciOiIwRTYxRDk1NjA5Iiwicm9sZSI6bnVsbCwiaWRfZWNvbGUiOm51bGwsImNyZWF0ZWRfYXQiOiIyMDIzLTAxLTMxIDE4OjI0OjEyLjI2Mjk4NSJ9fQ.pKQJuzf8xaopC7Kf0AgEfXmOCybUoDURdxAbPfcdQow",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/events",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"events"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Evenement_par_id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwYXlwbHVzLmFmcmljYSIsImlhdCI6MTY3NTU2MDQwMywibmJmIjoxNjc1NTYwNDA4LCJleHAiOjE2NzU1OTY0MDMsImRhdGEiOnsiaWQiOjQsInByZW5vbXMiOiJBcm5hdWQiLCJub20iOiJMT0tPTk9OIiwiZW1haWwiOiJmaWZAZ21haWwuY29tIiwidGVsIjoiNjg5NDc2MTIiLCJzZXhlIjoiTSIsImlkX3NsdWciOiIwRTYxRDk1NjA5Iiwicm9sZSI6bnVsbCwiaWRfZWNvbGUiOm51bGwsImNyZWF0ZWRfYXQiOiIyMDIzLTAxLTMxIDE4OjI0OjEyLjI2Mjk4NSJ9fQ.pKQJuzf8xaopC7Kf0AgEfXmOCybUoDURdxAbPfcdQow",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/events/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"events",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Créer un événement",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwYXlwbHVzLmFmcmljYSIsImlhdCI6MTY3NTU2MDQwMywibmJmIjoxNjc1NTYwNDA4LCJleHAiOjE2NzU1OTY0MDMsImRhdGEiOnsiaWQiOjQsInByZW5vbXMiOiJBcm5hdWQiLCJub20iOiJMT0tPTk9OIiwiZW1haWwiOiJmaWZAZ21haWwuY29tIiwidGVsIjoiNjg5NDc2MTIiLCJzZXhlIjoiTSIsImlkX3NsdWciOiIwRTYxRDk1NjA5Iiwicm9sZSI6bnVsbCwiaWRfZWNvbGUiOm51bGwsImNyZWF0ZWRfYXQiOiIyMDIzLTAxLTMxIDE4OjI0OjEyLjI2Mjk4NSJ9fQ.pKQJuzf8xaopC7Kf0AgEfXmOCybUoDURdxAbPfcdQow",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"titre\" : \"Excursion\",\n    \"description\" : \"J'irai la lo j'allerai\",\n    \"lieu\": \"Plage Erevan\",\n    \"date_de_debut\": \"2023-02-06\",\n    \"date_de_fin\": \"2023-02-08\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/schools/1/events",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"schools",
+								"1",
+								"events"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Liste des événements par école",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwYXlwbHVzLmFmcmljYSIsImlhdCI6MTY3NTU2MDQwMywibmJmIjoxNjc1NTYwNDA4LCJleHAiOjE2NzU1OTY0MDMsImRhdGEiOnsiaWQiOjQsInByZW5vbXMiOiJBcm5hdWQiLCJub20iOiJMT0tPTk9OIiwiZW1haWwiOiJmaWZAZ21haWwuY29tIiwidGVsIjoiNjg5NDc2MTIiLCJzZXhlIjoiTSIsImlkX3NsdWciOiIwRTYxRDk1NjA5Iiwicm9sZSI6bnVsbCwiaWRfZWNvbGUiOm51bGwsImNyZWF0ZWRfYXQiOiIyMDIzLTAxLTMxIDE4OjI0OjEyLjI2Mjk4NSJ9fQ.pKQJuzf8xaopC7Kf0AgEfXmOCybUoDURdxAbPfcdQow",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url}}/schools/1/events",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"schools",
+								"1",
+								"events"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Supprimer un evenement",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwYXlwbHVzLmFmcmljYSIsImlhdCI6MTY3NTU2MDQwMywibmJmIjoxNjc1NTYwNDA4LCJleHAiOjE2NzU1OTY0MDMsImRhdGEiOnsiaWQiOjQsInByZW5vbXMiOiJBcm5hdWQiLCJub20iOiJMT0tPTk9OIiwiZW1haWwiOiJmaWZAZ21haWwuY29tIiwidGVsIjoiNjg5NDc2MTIiLCJzZXhlIjoiTSIsImlkX3NsdWciOiIwRTYxRDk1NjA5Iiwicm9sZSI6bnVsbCwiaWRfZWNvbGUiOm51bGwsImNyZWF0ZWRfYXQiOiIyMDIzLTAxLTMxIDE4OjI0OjEyLjI2Mjk4NSJ9fQ.pKQJuzf8xaopC7Kf0AgEfXmOCybUoDURdxAbPfcdQow",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/events/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"events",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "https://myschool.herokuapp.com/api",
+			"type": "string"
+		}
+	]
+}
