@@ -25,6 +25,14 @@ final class ClasseService
      */
     public function getClasse(int $id)
     {
-        return $this->repository->classe($id);
+        $back = $this->repository->classe($id);
+        if (empty($back) && is_null($back))
+        {
+            return ['success' => false, "message" => "Cette classe n'existe pas"];
+        }
+        else
+        {
+            return $back;
+        }
     }
 }

@@ -241,4 +241,78 @@ class UserRepository extends Repository
             return ["success" => false, "message" => "Unauthorized"];
         }
     }
+
+    /**
+     * @param int $id
+     * @return array
+     */
+    public function getUserStudents(int $id)
+    {
+        $sql = "SELECT eleves.* FROM eleves JOIN parents_eleves ON parents_eleves.id_parent = $id";
+        $students = $this->connection->query($sql)->fetchAll();
+        if (!empty($students))
+        {
+            return ["success" => true, "response" => $students];
+        }
+        else
+        {
+            return ['success' => false, "message" => "Aucun eleve ne vous est lié"];
+        }
+
+    }
+
+    /**
+     * @param int $id
+     * @return array
+     */
+    public function getUserSchools(int $id)
+    {
+        /*
+        $sql = "SELECT ecoles.nom
+         FROM ecoles
+         JOIN classes ON ecoles.id = classes.id_ecole
+         JOIN eleves ON eleves.id_classe = classes.id
+         JOIN parents_eleves ON parents_eleves.id_parent = $id";*/
+
+        $sql = "SELECT ecoles.nom
+         FROM ecoles
+         JOIN classes ON ecoles.id = classes.id_ecole
+         JOIN eleves ON eleves.id_classe = classes.id
+         JOIN parents_eleves ON parents_eleves.id_eleve = eleves.id
+         WHERE parents_eleves.id_parent = $id";
+        $schools = $this->connection->query($sql)->fetchAll();
+        if (!empty($schools))
+        {
+            return ["success" => true, "response" => $schools];
+        }
+        else
+        {
+            return ["success" => false, "message" => "Aucune ecole ne vous est lie"];
+        }
+    }
+
+    /**
+     * @param int $id_user
+     * @param int $id_school
+     * @return array
+     */
+    public function getUserStudentsBySchool(int $id_user, int $id_school)
+    {
+        $sql = "SELECT eleves.* 
+                FROM eleves 
+                JOIN parents_eleves ON eleves.id = parents_eleves.id_eleve 
+                JOIN classes ON eleves.id_classe = classes.id
+                JOIN ecoles ON classes.id_ecole = ecoles.id
+                WHERE parents_eleves.id_parent = $id_user AND ecoles.id =  $id_school
+                ";
+        $eleves = $this->connection->query($sql)->fetchAll();
+        if (!empty($eleves))
+        {
+            return ["success" => true, "response" => $eleves];
+        }
+        else
+        {
+            return ["success" => false, "message" => "Pas d'enfant dans cette école pour vous"];
+        }
+    }
 }

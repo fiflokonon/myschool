@@ -25,6 +25,14 @@ final class StudentService
      */
     public function getStudent(int $id)
     {
-        return $this->repository->student($id);
+        $back = $this->repository->student($id);
+        if (empty($back) && is_null($back))
+        {
+            return ['success' => false, "message" => "Cet eleve n'existe pas"];
+        }
+        else
+        {
+            return $back;
+        }
     }
 }

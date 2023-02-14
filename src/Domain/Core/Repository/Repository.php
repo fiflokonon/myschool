@@ -42,7 +42,6 @@ class Repository
     {
         $sql = "SELECT * FROM $tablename WHERE id = $id LIMIT 1";
         $result = $this->connection->query($sql)->fetchAll();
-        #return $result[0];
         if ($result)
             return $result[0];
         else

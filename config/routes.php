@@ -72,6 +72,10 @@ use App\Action\Student\DeleteStudentAction;
 use App\Action\Student\SchoolStudentsAction;
 use App\Action\Student\StudentsAction;
 use App\Action\Student\StudentAction;
+use App\Action\Student\AddLinkAction;
+use App\Action\User\UserStudentsAction;
+use App\Action\User\UserSchoolsAction;
+use App\Action\User\SchoolUserStudentsAction;
 
 return function (App $app) {
     $app->get('/', function (ServerRequestInterface $request, ResponseInterface $response) {
@@ -156,11 +160,15 @@ return function (App $app) {
         $app->get('/classes/{id}/students', ClassStudentsAction::class);
         $app->post('/classes/{id}/students', CreateStudentAction::class);
         $app->get('/schools/{id}/students', SchoolStudentsAction::class);
+        $app->put('/users/{id}/link', AddLinkAction::class);
 
         /*** USER-ROUTES ****/
         $app->get('/users/{id}', UserAction::class);
         $app->delete('/users/{id}', DeleteUserAction::class);
         $app->get('/user-auth', GetMeAction::class);
+        $app->get('/users/{id}/students', UserStudentsAction::class);
+        $app->get('/users/{id_user}/schools/{id_ecole}/students', SchoolUserStudentsAction::class);
+        $app->get('/users/{id}/schools', UserSchoolsAction::class);
 
     })->add(LoginMiddleware::class)->add(CorsMiddleware::class);
 

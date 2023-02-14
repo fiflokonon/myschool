@@ -18,7 +18,7 @@ final class ParentsEleveCreateTable extends AbstractMigration
      */
     public function up(): void
     {
-        $this->table('parents-eleves')
+        $this->table('parents_eleves')
             ->addColumn('id_eleve', 'integer')
             ->addColumn('id_parent', 'integer')
             ->addColumn('created_at', 'timestamp', ['default' => 'CURRENT_TIMESTAMP'])
@@ -34,6 +34,6 @@ final class ParentsEleveCreateTable extends AbstractMigration
      */
     public function down():void
     {
-        $this->table('parents-eleves')->drop()->save();
+        $this->table('parents_eleves')->drop()->save();
     }
 }

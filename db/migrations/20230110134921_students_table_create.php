@@ -26,13 +26,7 @@ final class StudentsTableCreate extends AbstractMigration
             ->addColumn('scolarite_paye', 'integer', ['default' => 0])
             ->addColumn('nom_prenoms_pere', 'string')
             ->addColumn('nom_prenoms_mere', 'string')
-            ->addColumn('id_pere', 'integer')
-            ->addColumn('id_mere', 'integer')
             ->addForeignKey('id_classe', 'classes', 'id',
-            ['delete' => 'NO_ACTION', 'update' => 'CASCADE'])
-            ->addForeignKey('id_pere', 'utilisateurs', 'id',
-            ['delete' => 'NO_ACTION', 'update' => 'CASCADE'])
-            ->addForeignKey('id_mere', 'utilisateurs', 'id',
             ['delete' => 'NO_ACTION', 'update' => 'CASCADE'])
             ->create();
     }

@@ -155,4 +155,68 @@ class StudentRepository extends \App\Domain\Core\Repository\Repository
         return $stmt->fetch(PDO::FETCH_OBJ);
     }
 
+    /**
+     * @param string $matricule
+     * @return array
+     */
+    public function getStudentByMatricule(string $matricule)
+    {
+        $sql = "SELECT * FROM eleves WHERE matricule = '$matricule' LIMIT 1";
+        $result = $this->connection->query($sql)->fetchAll();
+        if ($result[0])
+        {
+            return ["success" => true, "response" => $result[0]];
+        }
+        else
+        {
+            return ['success' => false, "message" => "Eleve inexistant"];
+        }
+    }
+
+    public function createLink(string $matricule, int $id)
+    {
+        $eleve = $this->getStudentByMatricule($matricule);
+        $eleve_id = $eleve['response']['id'];
+        if ($eleve['success'] === true && $this->checkLink($eleve_id, $id))
+        {
+            $sql = "INSERT INTO parents_eleves(id_eleve, id_parent) VALUES(:id_eleve, :id_parent)";
+            $stmt = $this->connection->prepare($sql);
+            $stmt->bindValue('id_eleve', $eleve_id);
+            $stmt->bindValue('id_parent', $id);
+            try
+            {
+                $stmt->execute();
+                return ['success' => true, "message" => "Eleve affilie au parent"];
+            }catch (HttpException $exception)
+            {
+                return ["success" => false, "message" => $exception->getMessage()];
+            }
+        }
+        else
+        {
+            return ['success' => false, "message" => "Aucun lien entre parent et eleve ou eleve inexistant"];
+        }
+    }
+
+    /**
+     * @param int $student_id
+     * @param int $user_id
+     * @return bool
+     */
+    public function checkLink(int $student_id, int $user_id)
+    {
+        $student = $this->getOne('eleves', $student_id);
+        $user = $this->getOne('utilisateurs', $user_id);
+        $pere = $student['nom_prenoms_pere'];
+        $mere = $student['nom_prenoms_mere'];
+        $user_concat = ''.$user['nom'].' '.$user['prenoms'].'';
+        if ($user_concat === $mere || $user_concat === $pere)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }
