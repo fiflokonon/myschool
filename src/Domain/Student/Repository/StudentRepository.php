@@ -26,7 +26,16 @@ class StudentRepository extends \App\Domain\Core\Repository\Repository
      */
     public function student(int $id)
     {
-        return $this->getOne('eleves', $id);
+        $sql = "SELECT eleves.*, classes.scolarite as scolarite_total, (classes.scolarite - eleves.scolarite_paye) as scolarite_rest 
+                FROM eleves JOIN classes ON eleves.id_classe = classes.id WHERE eleves.id = $id LIMIT 1";
+        $back = $this->connection->query($sql)->fetchAll();
+        if (!empty($back))
+        {
+            return ["success" => true, "response" => $back[0]];
+        }
+        else{
+            return ["success" => false, "message" => "Not found"];
+        }
     }
 
     public function createStudent(array $student)

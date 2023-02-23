@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "a90abcee-d443-499a-9d12-63ece96613f8",
+		"_postman_id": "c52abf8b-28d1-40e8-93fa-0b3b87946924",
 		"name": "Myschool_production",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "17010973"
@@ -69,7 +69,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwYXlwbHVzLmFmcmljYSIsImlhdCI6MTY3NDgzMTA2MCwibmJmIjoxNjc0ODMxMDY1LCJleHAiOjE2NzQ4MzQ2NjAsImRhdGEiOnsiaWQiOjEsInByZW5vbXMiOiJBcmlzdG9mYW5lIiwibm9tIjoiTE9LTyIsImVtYWlsIjoiYXJpc0BnbWFpbC5jb20iLCJ0ZWwiOiI2ODk0NzYxNCIsInNleGUiOiJNIiwiaWRfc2x1ZyI6IjA3MzNBNzYwRjgiLCJyb2xlIjpudWxsLCJpZF9lY29sZSI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDEtMjcgMTU6NDI6MDkuOTgwMzIyIn19.58dm4FcwWWbrv8peYC-DGMVI0zk5RnjABMcexbFDXJg",
+									"value": "{{token}}",
 									"type": "string"
 								}
 							]
@@ -97,7 +97,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwYXlwbHVzLmFmcmljYSIsImlhdCI6MTY3NDgzMTA2MCwibmJmIjoxNjc0ODMxMDY1LCJleHAiOjE2NzQ4MzQ2NjAsImRhdGEiOnsiaWQiOjEsInByZW5vbXMiOiJBcmlzdG9mYW5lIiwibm9tIjoiTE9LTyIsImVtYWlsIjoiYXJpc0BnbWFpbC5jb20iLCJ0ZWwiOiI2ODk0NzYxNCIsInNleGUiOiJNIiwiaWRfc2x1ZyI6IjA3MzNBNzYwRjgiLCJyb2xlIjpudWxsLCJpZF9lY29sZSI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDEtMjcgMTU6NDI6MDkuOTgwMzIyIn19.58dm4FcwWWbrv8peYC-DGMVI0zk5RnjABMcexbFDXJg",
+									"value": "{{token}}",
 									"type": "string"
 								}
 							]
@@ -160,6 +160,95 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Liste des enfants par parent",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users/3/students",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"3",
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Liste des enfants par parents et par ecole",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users/3/schools/2/students",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"3",
+								"schools",
+								"2",
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ecoles liées au parent",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users/3/schools",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"3",
+								"schools"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -201,7 +290,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwYXlwbHVzLmFmcmljYSIsImlhdCI6MTY3NDgzMTg2MiwibmJmIjoxNjc0ODMxODY3LCJleHAiOjE2NzQ4MzU0NjIsImRhdGEiOnsiaWQiOjEsInByZW5vbXMiOiJBcmlzdG9mYW5lIiwibm9tIjoiTE9LTyIsImVtYWlsIjoiYXJpc0BnbWFpbC5jb20iLCJ0ZWwiOiI2ODk0NzYxNCIsInNleGUiOiJNIiwiaWRfc2x1ZyI6IjJCMEM4RTQ0QTQiLCJyb2xlIjpudWxsLCJpZF9lY29sZSI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDEtMjcgMTY6MDQ6MTYuMTI5ODQ3In19.XEKZBCMBGq--xzV2y4XQR-FdahgkNafx7keYmH3JlN8",
+									"value": "{{token}}",
 									"type": "string"
 								}
 							]
@@ -210,7 +299,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"nom\" : \"MAGNIFICAT\",\n    \"email\" : \"mag@gmail.com\",\n    \"contact\" : \"96235221\",\n    \"adresse\" : \"Missérété\"\n}",
+							"raw": "{\n    \"nom\" : \"CSP_ISRAEL\",\n    \"email\" : \"israel@gmail.com\",\n    \"contact\" : \"62352551\",\n    \"adresse\" : \"Missérété\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -237,7 +326,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwYXlwbHVzLmFmcmljYSIsImlhdCI6MTY3NDgzMTg2MiwibmJmIjoxNjc0ODMxODY3LCJleHAiOjE2NzQ4MzU0NjIsImRhdGEiOnsiaWQiOjEsInByZW5vbXMiOiJBcmlzdG9mYW5lIiwibm9tIjoiTE9LTyIsImVtYWlsIjoiYXJpc0BnbWFpbC5jb20iLCJ0ZWwiOiI2ODk0NzYxNCIsInNleGUiOiJNIiwiaWRfc2x1ZyI6IjJCMEM4RTQ0QTQiLCJyb2xlIjpudWxsLCJpZF9lY29sZSI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDEtMjcgMTY6MDQ6MTYuMTI5ODQ3In19.XEKZBCMBGq--xzV2y4XQR-FdahgkNafx7keYmH3JlN8",
+									"value": "{{token}}",
 									"type": "string"
 								}
 							]
@@ -265,7 +354,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwYXlwbHVzLmFmcmljYSIsImlhdCI6MTY3NDgzMTg2MiwibmJmIjoxNjc0ODMxODY3LCJleHAiOjE2NzQ4MzU0NjIsImRhdGEiOnsiaWQiOjEsInByZW5vbXMiOiJBcmlzdG9mYW5lIiwibm9tIjoiTE9LTyIsImVtYWlsIjoiYXJpc0BnbWFpbC5jb20iLCJ0ZWwiOiI2ODk0NzYxNCIsInNleGUiOiJNIiwiaWRfc2x1ZyI6IjJCMEM4RTQ0QTQiLCJyb2xlIjpudWxsLCJpZF9lY29sZSI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDEtMjcgMTY6MDQ6MTYuMTI5ODQ3In19.XEKZBCMBGq--xzV2y4XQR-FdahgkNafx7keYmH3JlN8",
+									"value": "{{token}}",
 									"type": "string"
 								}
 							]
@@ -273,13 +362,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/schools/2",
+							"raw": "{{base_url}}/schools/4",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"schools",
-								"2"
+								"4"
 							]
 						}
 					},
@@ -298,7 +387,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwYXlwbHVzLmFmcmljYSIsImlhdCI6MTY3NDgzMTg2MiwibmJmIjoxNjc0ODMxODY3LCJleHAiOjE2NzQ4MzU0NjIsImRhdGEiOnsiaWQiOjEsInByZW5vbXMiOiJBcmlzdG9mYW5lIiwibm9tIjoiTE9LTyIsImVtYWlsIjoiYXJpc0BnbWFpbC5jb20iLCJ0ZWwiOiI2ODk0NzYxNCIsInNleGUiOiJNIiwiaWRfc2x1ZyI6IjJCMEM4RTQ0QTQiLCJyb2xlIjpudWxsLCJpZF9lY29sZSI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDEtMjcgMTY6MDQ6MTYuMTI5ODQ3In19.XEKZBCMBGq--xzV2y4XQR-FdahgkNafx7keYmH3JlN8",
+									"value": "{{token}}",
 									"type": "string"
 								}
 							]
@@ -325,7 +414,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwYXlwbHVzLmFmcmljYSIsImlhdCI6MTY3NDgzMTg2MiwibmJmIjoxNjc0ODMxODY3LCJleHAiOjE2NzQ4MzU0NjIsImRhdGEiOnsiaWQiOjEsInByZW5vbXMiOiJBcmlzdG9mYW5lIiwibm9tIjoiTE9LTyIsImVtYWlsIjoiYXJpc0BnbWFpbC5jb20iLCJ0ZWwiOiI2ODk0NzYxNCIsInNleGUiOiJNIiwiaWRfc2x1ZyI6IjJCMEM4RTQ0QTQiLCJyb2xlIjpudWxsLCJpZF9lY29sZSI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDEtMjcgMTY6MDQ6MTYuMTI5ODQ3In19.XEKZBCMBGq--xzV2y4XQR-FdahgkNafx7keYmH3JlN8",
+									"value": "{{token}}",
 									"type": "string"
 								}
 							]
@@ -334,7 +423,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"nom\": \"CP\",\n    \"scolarite\" : 150000\n}",
+							"raw": "{\n    \"nom\": \"CM-inutile\",\n    \"scolarite\" : 160000\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -363,7 +452,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwYXlwbHVzLmFmcmljYSIsImlhdCI6MTY3NDgzMTg2MiwibmJmIjoxNjc0ODMxODY3LCJleHAiOjE2NzQ4MzU0NjIsImRhdGEiOnsiaWQiOjEsInByZW5vbXMiOiJBcmlzdG9mYW5lIiwibm9tIjoiTE9LTyIsImVtYWlsIjoiYXJpc0BnbWFpbC5jb20iLCJ0ZWwiOiI2ODk0NzYxNCIsInNleGUiOiJNIiwiaWRfc2x1ZyI6IjJCMEM4RTQ0QTQiLCJyb2xlIjpudWxsLCJpZF9lY29sZSI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDEtMjcgMTY6MDQ6MTYuMTI5ODQ3In19.XEKZBCMBGq--xzV2y4XQR-FdahgkNafx7keYmH3JlN8",
+									"value": "{{token}}",
 									"type": "string"
 								}
 							]
@@ -371,13 +460,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/classes/2",
+							"raw": "{{base_url}}/classes/3",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"classes",
-								"2"
+								"3"
 							]
 						}
 					},
@@ -419,7 +508,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwYXlwbHVzLmFmcmljYSIsImlhdCI6MTY3NDgzMTg2MiwibmJmIjoxNjc0ODMxODY3LCJleHAiOjE2NzQ4MzU0NjIsImRhdGEiOnsiaWQiOjEsInByZW5vbXMiOiJBcmlzdG9mYW5lIiwibm9tIjoiTE9LTyIsImVtYWlsIjoiYXJpc0BnbWFpbC5jb20iLCJ0ZWwiOiI2ODk0NzYxNCIsInNleGUiOiJNIiwiaWRfc2x1ZyI6IjJCMEM4RTQ0QTQiLCJyb2xlIjpudWxsLCJpZF9lY29sZSI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDEtMjcgMTY6MDQ6MTYuMTI5ODQ3In19.XEKZBCMBGq--xzV2y4XQR-FdahgkNafx7keYmH3JlN8",
+									"value": "{{token}}",
 									"type": "string"
 								}
 							]
@@ -623,6 +712,44 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Relier le parent à l'enfant",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"matricule\" : \"CSP1GBE1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/1/link",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"1",
+								"link"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -713,6 +840,35 @@
 					"response": []
 				},
 				{
+					"name": "Liste des matieres par ecoles",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwYXlwbHVzLmFmcmljYSIsImlhdCI6MTY3NDgzOTY4MywibmJmIjoxNjc0ODM5Njg4LCJleHAiOjE2NzQ4NzU2ODMsImRhdGEiOnsiaWQiOjEsInByZW5vbXMiOiJBcmlzdG9mYW5lIiwibm9tIjoiTE9LTyIsImVtYWlsIjoiYXJpc0BnbWFpbC5jb20iLCJ0ZWwiOiI2ODk0NzYxNCIsInNleGUiOiJNIiwiaWRfc2x1ZyI6IjJCMEM4RTQ0QTQiLCJyb2xlIjpudWxsLCJpZF9lY29sZSI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDEtMjcgMTY6MDQ6MTYuMTI5ODQ3In19.ZJMjXTOzajWRJF6KhFteY3lMZYWklDvx-ghRUC3PnMo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/schools/1/matieres",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"schools",
+								"1",
+								"matieres"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Créer une matiere dans une ecole_id_ecole",
 					"request": {
 						"auth": {
@@ -736,35 +892,6 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{base_url}}/schools/1/matieres",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"schools",
-								"1",
-								"matieres"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Liste des matieres par ecoles",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwYXlwbHVzLmFmcmljYSIsImlhdCI6MTY3NDgzOTY4MywibmJmIjoxNjc0ODM5Njg4LCJleHAiOjE2NzQ4NzU2ODMsImRhdGEiOnsiaWQiOjEsInByZW5vbXMiOiJBcmlzdG9mYW5lIiwibm9tIjoiTE9LTyIsImVtYWlsIjoiYXJpc0BnbWFpbC5jb20iLCJ0ZWwiOiI2ODk0NzYxNCIsInNleGUiOiJNIiwiaWRfc2x1ZyI6IjJCMEM4RTQ0QTQiLCJyb2xlIjpudWxsLCJpZF9lY29sZSI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDEtMjcgMTY6MDQ6MTYuMTI5ODQ3In19.ZJMjXTOzajWRJF6KhFteY3lMZYWklDvx-ghRUC3PnMo",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
 						"url": {
 							"raw": "{{base_url}}/schools/1/matieres",
 							"host": [
@@ -1097,6 +1224,304 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Punition",
+			"item": [
+				{
+					"name": "Ajouter_Punition_pour un eleve dans une matiere",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"punition\" : \"Nettoyage des toilettes\",\n    \"motif\" : \"Bavardage\",\n    \"date\" : \"2023-02-15\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/students/1/matieres/1/punitions",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"students",
+								"1",
+								"matieres",
+								"1",
+								"punitions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Punitions par matiere et par eleve",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Punition_par_id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/punitions/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"punitions",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Punitons_par_eleve",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/students/1/punitions",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"students",
+								"1",
+								"punitions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Punitions_par_matiere",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/matieres/1/punitions",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"matieres",
+								"1",
+								"punitions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Supprimer_Punition",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/punitions/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"punitions",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Note",
+			"item": [
+				{
+					"name": "Toutes les notes d'un eleve",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/students/1/notes",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"students",
+								"1",
+								"notes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ajouter une note dans une matière",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"note\": 10,\n    \"type\": \"Interro\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/students/1/matieres/3/notes",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"students",
+								"1",
+								"matieres",
+								"3",
+								"notes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Notes de l'eleve dans une matière",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/students/1/notes",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"students",
+								"1",
+								"notes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Supprimer une note",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/notes/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"notes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"event": [
@@ -1123,6 +1548,11 @@
 		{
 			"key": "base_url",
 			"value": "https://myschool.herokuapp.com/api",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwYXlwbHVzLmFmcmljYSIsImlhdCI6MTY3NzE2MzU4MywibmJmIjoxNjc3MTYzNTg4LCJleHAiOjE2NzcxOTk1ODMsImRhdGEiOnsiaWQiOjIsInByZW5vbXMiOiJQYXVsIiwibm9tIjoiU09TU09VIiwiZW1haWwiOiJwYXVsQGdtYWlsLmNvbSIsInRlbCI6IjY4OTQ3NjEyIiwic2V4ZSI6Ik0iLCJpZF9zbHVnIjoiMEQwRDgzOTZBOSIsInJvbGUiOm51bGwsImlkX2Vjb2xlIjpudWxsLCJjcmVhdGVkX2F0IjoiMjAyMy0wMi0xNyAxMToyOTozMy42NzAzMzEifX0.cyl-LRU-WKvWojBqvpuWW9SAeYKYZvw-Kf-fN3ecNR4",
 			"type": "string"
 		}
 	]

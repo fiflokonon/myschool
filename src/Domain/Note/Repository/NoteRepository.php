@@ -35,6 +35,11 @@ class NoteRepository extends \App\Domain\Core\Repository\Repository
         }
     }
 
+    /**
+     * @param int $id
+     * @param int $id_field
+     * @return array
+     */
     public function getStudentNotesByField(int $id, int $id_field)
     {
         $sql_matiere = "SELECT * FROM matieres WHERE id = $id_field LIMIT 1";
@@ -59,6 +64,10 @@ class NoteRepository extends \App\Domain\Core\Repository\Repository
         }
     }
 
+    /**
+     * @param array $note
+     * @return array|false|mixed|string
+     */
     public function createNote(array $note)
     {
         $_note = htmlspecialchars($note['note']);

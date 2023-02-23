@@ -248,11 +248,29 @@ class UserRepository extends Repository
      */
     public function getUserStudents(int $id)
     {
-        $sql = "SELECT eleves.* FROM eleves JOIN parents_eleves ON parents_eleves.id_parent = $id";
+        $sql = "SELECT eleves.*, classes.scolarite as scolarite_total, (classes.scolarite - eleves.scolarite_paye) as 
+                scolarite_rest FROM eleves JOIN 
+                classes ON eleves.id_classe = classes.id
+                JOIN parents_eleves ON eleves.id = parents_eleves.id_eleve WHERE parents_eleves.id_parent = $id";
         $students = $this->connection->query($sql)->fetchAll();
         if (!empty($students))
         {
-            return ["success" => true, "response" => $students];
+            $all = [];
+            $all['scolarite_total_rest'] = 0;
+            $all['scolarite_total'] = 0;
+            $all['scolarite_total_paye'] = 0;
+            $all['students'] = $students;
+            foreach ($students as $student)
+            {
+
+                if (isset($student['scolarite_paye']) && isset($student['scolarite_total']) && isset($student['scolarite_rest']))
+                {
+                    $all['scolarite_total'] = $all['scolarite_total'] + $student['scolarite_total'];
+                    $all['scolarite_total_paye'] = $all['scolarite_total_paye'] + $student['scolarite_paye'];
+                    $all['scolarite_total_rest'] = $all['scolarite_total_rest'] + $student['scolarite_rest'];
+                }
+            }
+            return ["success" => true, "response" => $all];
         }
         else
         {
