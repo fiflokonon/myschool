@@ -30,7 +30,7 @@ class InstalledVersions
     'aliases' => 
     array (
     ),
-    'reference' => 'a08b22f6510817e14c7a6dd2b66908bfd08c8b21',
+    'reference' => '31267dc45f54b6964a46467213f361f8dd7048ec',
     'name' => '__root__',
   ),
   'versions' => 
@@ -42,7 +42,7 @@ class InstalledVersions
       'aliases' => 
       array (
       ),
-      'reference' => 'a08b22f6510817e14c7a6dd2b66908bfd08c8b21',
+      'reference' => '31267dc45f54b6964a46467213f361f8dd7048ec',
     ),
     'cakephp/core' => 
     array (

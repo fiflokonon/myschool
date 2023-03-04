@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "c52abf8b-28d1-40e8-93fa-0b3b87946924",
-		"name": "Myschool_production",
+		"_postman_id": "8c7425f8-9dc9-45ca-ab80-faeafb1185ae",
+		"name": "Myschool_Production",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "17010973"
 	},
@@ -569,7 +569,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwYXlwbHVzLmFmcmljYSIsImlhdCI6MTY3NDgzNTU3NywibmJmIjoxNjc0ODM1NTgyLCJleHAiOjE2NzQ4MzkxNzcsImRhdGEiOnsiaWQiOjEsInByZW5vbXMiOiJBcmlzdG9mYW5lIiwibm9tIjoiTE9LTyIsImVtYWlsIjoiYXJpc0BnbWFpbC5jb20iLCJ0ZWwiOiI2ODk0NzYxNCIsInNleGUiOiJNIiwiaWRfc2x1ZyI6IjJCMEM4RTQ0QTQiLCJyb2xlIjpudWxsLCJpZF9lY29sZSI6bnVsbCwiY3JlYXRlZF9hdCI6IjIwMjMtMDEtMjcgMTY6MDQ6MTYuMTI5ODQ3In19.uAYFjLhbNRfP7YWqVIEWEwsHxIvyU54zhXnbrQ8PPQ0",
+									"value": "{{token}}",
 									"type": "string"
 								}
 							]
@@ -1522,8 +1522,448 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Punitions",
+			"item": [
+				{
+					"name": "Toutes les punitions d'un eleve",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/students/1/punitions",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"students",
+								"1",
+								"punitions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ajouter une punitions dans une matière",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"note\": 10,\n    \"type\": \"Interro\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/students/1/matieres/3/punitions",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"students",
+								"1",
+								"matieres",
+								"3",
+								"punitions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Punitions de l'eleve dans une matière",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/students/1/matieres/1/punitions",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"students",
+								"1",
+								"matieres",
+								"1",
+								"punitions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Supprimer une punition",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/punitions/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"punitions",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Messages",
+			"item": [
+				{
+					"name": "Tous les messages",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/messages",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"messages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Message par id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/messages/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"messages",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Supprimer_un_message_par_id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/messages/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"messages",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Tous les messages lus",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/read-messages",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"read-messages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Tous les messages non lus",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/nonread-messages",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"nonread-messages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Tous les messages par ecole avec ecole_id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/schools/1/messages",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"schools",
+								"1",
+								"messages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Supprimer tous les messages lus par école avec id_ecole",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/schools/1/read-messages",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"schools",
+								"1",
+								"read-messages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Tous les messages non lus par école avec ecole_id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/schools/1/nonread-messages",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"schools",
+								"1",
+								"nonread-messages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Envoyer un message avec id_ecole",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"message\" :\"Un nouveau message\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/3/schools/1/messages",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"3",
+								"schools",
+								"1",
+								"messages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modifier le statut d'un message non lu à lu_avec_id_message",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/messages/2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"messages",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
 	"event": [
 		{
 			"listen": "prerequest",
@@ -1552,7 +1992,7 @@
 		},
 		{
 			"key": "token",
-			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwYXlwbHVzLmFmcmljYSIsImlhdCI6MTY3NzE2MzU4MywibmJmIjoxNjc3MTYzNTg4LCJleHAiOjE2NzcxOTk1ODMsImRhdGEiOnsiaWQiOjIsInByZW5vbXMiOiJQYXVsIiwibm9tIjoiU09TU09VIiwiZW1haWwiOiJwYXVsQGdtYWlsLmNvbSIsInRlbCI6IjY4OTQ3NjEyIiwic2V4ZSI6Ik0iLCJpZF9zbHVnIjoiMEQwRDgzOTZBOSIsInJvbGUiOm51bGwsImlkX2Vjb2xlIjpudWxsLCJjcmVhdGVkX2F0IjoiMjAyMy0wMi0xNyAxMToyOTozMy42NzAzMzEifX0.cyl-LRU-WKvWojBqvpuWW9SAeYKYZvw-Kf-fN3ecNR4",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwYXlwbHVzLmFmcmljYSIsImlhdCI6MTY3NzkwNzI1MSwibmJmIjoxNjc3OTA3MjU2LCJleHAiOjE2Nzc5NDMyNTEsImRhdGEiOnsiaWQiOjEsInByZW5vbXMiOiJBcm5hdWQiLCJub20iOiJMT0tPTk9OIiwiZW1haWwiOiJmaWZAZ21haWwuY29tIiwidGVsIjoiNjg5NDc2MTIiLCJzZXhlIjoiTSIsImlkX3NsdWciOiI0RjI0RTYyQUU4Iiwicm9sZSI6bnVsbCwiaWRfZWNvbGUiOm51bGwsImNyZWF0ZWRfYXQiOiIyMDIzLTAyLTE3IDEwOjU2OjU2LjI4ODM2MSJ9fQ.Kiztx0vShdfy_Wm_A4X149j9Ocqkj5AMLAhH5AXGoLA",
 			"type": "string"
 		}
 	]

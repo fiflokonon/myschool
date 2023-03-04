@@ -10,3 +10,4 @@
 #Database Settings
 ./../config/settings.php
 ./../phinx.php
+./../vendor

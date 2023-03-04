@@ -1,5 +1,9 @@
 <?php
 
+use App\Action\Punition\CreatePunitionAction;
+use App\Action\Punition\DeletePunitionAction;
+use App\Action\Punition\StudentPunitionsAction;
+use App\Action\Punition\StudentPunitionsByFieldAction;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Slim\App;
@@ -169,6 +173,12 @@ return function (App $app) {
         $app->get('/users/{id}/students', UserStudentsAction::class);
         $app->get('/users/{id_user}/schools/{id_ecole}/students', SchoolUserStudentsAction::class);
         $app->get('/users/{id}/schools', UserSchoolsAction::class);
+
+        /*** PUNITION ROUTES ****/
+        $app->delete('/punitions/{id}', DeletePunitionAction::class);
+        $app->get('/students/{id}/punitions', StudentPunitionsAction::class);
+        $app->get('/students/{id_eleve}/matieres/{id_matiere}/punitions', StudentPunitionsByFieldAction::class);
+        $app->post('/students/{id_eleve}/matieres/{id_matiere}/punitions', CreatePunitionAction::class);
 
     })->add(LoginMiddleware::class)->add(CorsMiddleware::class);
 
