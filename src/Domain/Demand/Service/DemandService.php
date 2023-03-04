@@ -22,6 +22,14 @@ final class DemandService
      */
     public function getDemand(int $id)
     {
-        return $this->repository->demand($id);
+        $demand  = $this->repository->demand($id);
+        if (!empty($demand))
+        {
+            return ["success" => true, "response" => $demand];
+        }
+        else
+        {
+            return ['success' => false, 'message' => 'Inexistant'];
+        }
     }
 }

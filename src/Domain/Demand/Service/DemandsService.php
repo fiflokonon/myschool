@@ -24,6 +24,14 @@ final class DemandsService
      */
     public function getDemands()
     {
-        return $this->repository->demands();
+        $messages = $this->repository->demands();
+        if (!empty($messages))
+        {
+            return ["success" => true, "response" => $messages];
+        }
+        else
+        {
+            return ["success" => false, "message" => "Pas de message dans la base"];
+        }
     }
 }

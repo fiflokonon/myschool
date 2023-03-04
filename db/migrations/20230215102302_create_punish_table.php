@@ -22,8 +22,11 @@ final class CreatePunishTable extends AbstractMigration
             ->addColumn('id_matiere', 'integer')
             ->addColumn('motif', 'string')
             ->addColumn('punition', 'string')
+            ->addColumn('id_eleve', 'integer')
             ->addColumn('date', 'timestamp', ['default' => 'CURRENT_TIMESTAMP'])
             ->addColumn('created_at', 'timestamp', ['default' => 'CURRENT_TIMESTAMP'])
+            ->addForeignKey('id_eleve', 'eleves', 'id',
+                ['delete' => 'NO_ACTION', 'update' => 'CASCADE'])
             ->addForeignKey('id_matiere', 'matieres', 'id',
             ['delete' => 'NO_ACTION', 'update' => 'CASCADE'])
             ->create();
@@ -31,6 +34,6 @@ final class CreatePunishTable extends AbstractMigration
 
     public function down()
     {
-
+        $this->table('punitions')->drop()->save();
     }
 }

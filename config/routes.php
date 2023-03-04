@@ -115,7 +115,7 @@ return function (App $app) {
         $app->get('/schools/{id}/nonread-messages', SchoolUnreadMessagesAction::class);
         $app->get('/schools/{id}/read-messages', SchoolReadMessagesAction::class);
         $app->delete('/schools/{id}/read-messages', DelSchoolReadMessagesAction::class);
-        $app->post('/users/{id_utilisateur}/ecoles/{id_ecole}/messages', CreateDemandAction::class);
+        $app->post('/users/{id_utilisateur}/schools/{id_ecole}/messages', CreateDemandAction::class);
 
         /*** EVENT-ROUTES ***/
         $app->get('/events', EventsAction::class);

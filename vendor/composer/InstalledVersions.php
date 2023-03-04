@@ -30,7 +30,7 @@ class InstalledVersions
     'aliases' => 
     array (
     ),
-    'reference' => '3675d15db1e5cb45300b7dc55aeaa803181c8e62',
+    'reference' => 'a08b22f6510817e14c7a6dd2b66908bfd08c8b21',
     'name' => '__root__',
   ),
   'versions' => 
@@ -42,30 +42,30 @@ class InstalledVersions
       'aliases' => 
       array (
       ),
-      'reference' => '3675d15db1e5cb45300b7dc55aeaa803181c8e62',
+      'reference' => 'a08b22f6510817e14c7a6dd2b66908bfd08c8b21',
     ),
     'cakephp/core' => 
     array (
-      'pretty_version' => '4.4.10',
-      'version' => '4.4.10.0',
+      'pretty_version' => '4.4.11',
+      'version' => '4.4.11.0',
       'aliases' => 
       array (
       ),
-      'reference' => '20e50de2f461b5983a1a1296fe5c3762857b9edd',
+      'reference' => '3730ce60f0153b609c9d756fe1b60978bc9c9fee',
     ),
     'cakephp/database' => 
     array (
-      'pretty_version' => '4.4.10',
-      'version' => '4.4.10.0',
+      'pretty_version' => '4.4.11',
+      'version' => '4.4.11.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'c12a8f30f802968a885774e2ac3c099f470bf07c',
+      'reference' => '904c09ac6ac41bddd65ef62f11676870aa8837a0',
     ),
     'cakephp/datasource' => 
     array (
-      'pretty_version' => '4.4.10',
-      'version' => '4.4.10.0',
+      'pretty_version' => '4.4.11',
+      'version' => '4.4.11.0',
       'aliases' => 
       array (
       ),
@@ -73,30 +73,30 @@ class InstalledVersions
     ),
     'cakephp/utility' => 
     array (
-      'pretty_version' => '4.4.10',
-      'version' => '4.4.10.0',
+      'pretty_version' => '4.4.11',
+      'version' => '4.4.11.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'aa7bba6c39b56751f5c917464f113c924d4ba10f',
+      'reference' => '3694d44728fb00ab474d9e031d51ed47f3d0e31c',
     ),
     'firebase/php-jwt' => 
     array (
-      'pretty_version' => 'v6.3.2',
-      'version' => '6.3.2.0',
+      'pretty_version' => 'v6.4.0',
+      'version' => '6.4.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'ea7dda77098b96e666c5ef382452f94841e439cd',
+      'reference' => '4dd1e007f22a927ac77da5a3fbb067b42d3bc224',
     ),
     'laravel/serializable-closure' => 
     array (
-      'pretty_version' => 'v1.2.2',
-      'version' => '1.2.2.0',
+      'pretty_version' => 'v1.3.0',
+      'version' => '1.3.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => '47afb7fae28ed29057fdca37e16a84f90cc62fae',
+      'reference' => 'f23fe9d4e95255dacee1bf3525e0810d1a1b0f37',
     ),
     'nikic/fast-route' => 
     array (
@@ -272,21 +272,21 @@ class InstalledVersions
     ),
     'symfony/config' => 
     array (
-      'pretty_version' => 'v5.4.19',
-      'version' => '5.4.19.0',
+      'pretty_version' => 'v5.4.21',
+      'version' => '5.4.21.0',
       'aliases' => 
       array (
       ),
-      'reference' => '9bd60843443cda9638efdca7c41eb82ed0026179',
+      'reference' => '2a6b1111d038adfa15d52c0871e540f3b352d1e4',
     ),
     'symfony/console' => 
     array (
-      'pretty_version' => 'v5.4.19',
-      'version' => '5.4.19.0',
+      'pretty_version' => 'v5.4.21',
+      'version' => '5.4.21.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'dccb8d251a9017d5994c988b034d3e18aaabf740',
+      'reference' => 'c77433ddc6cdc689caf48065d9ea22ca0853fbd9',
     ),
     'symfony/deprecation-contracts' => 
     array (
@@ -299,12 +299,12 @@ class InstalledVersions
     ),
     'symfony/filesystem' => 
     array (
-      'pretty_version' => 'v5.4.19',
-      'version' => '5.4.19.0',
+      'pretty_version' => 'v5.4.21',
+      'version' => '5.4.21.0',
       'aliases' => 
       array (
       ),
-      'reference' => '648bfaca6a494f3e22378123bcee2894045dc9d8',
+      'reference' => 'e75960b1bbfd2b8c9e483e0d74811d555ca3de9f',
     ),
     'symfony/polyfill-ctype' => 
     array (
@@ -380,12 +380,12 @@ class InstalledVersions
     ),
     'symfony/string' => 
     array (
-      'pretty_version' => 'v5.4.19',
-      'version' => '5.4.19.0',
+      'pretty_version' => 'v5.4.21',
+      'version' => '5.4.21.0',
       'aliases' => 
       array (
       ),
-      'reference' => '0a01071610fd861cc160dfb7e2682ceec66064cb',
+      'reference' => 'edac10d167b78b1d90f46a80320d632de0bd9f2f',
     ),
   ),
 );

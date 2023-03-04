@@ -198,7 +198,7 @@ final class DemandRepository extends \App\Domain\Core\Repository\Repository
             $demands = $this->connection->query($sql)->fetchAll();
             return [
                 "success" => true,
-                "response" => $demands
+                "response" => "Messages supprimés"
             ];
         }
         catch (HttpException $exception)
