@@ -1,8 +1,5 @@
 {
     "config": {
-        "platform": {
-            "php": "7.4.0"
-        },
         "prevent-update": {
             "symfony/symfony": true,
             "doctrine/orm": true
