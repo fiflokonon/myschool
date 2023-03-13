@@ -11,10 +11,10 @@ $settings = [];
 // Database settings
 $settings['db'] = [
     'driver' => 'psql',
-    'host' => 'ec2-34-226-11-94.compute-1.amazonaws.com',
+    'host' => 'ec2-34-202-127-5.compute-1.amazonaws.com',
     'username' => 'nwysqzusqyfubb',
-    'database' => 'd31khun38mlrau',
-    'password' => '4c82efe28d544bb3eb002ce3bc84775a08bbf903918f18e0d77767f1252ed62f',
+    'database' => 'itptbjllhuhzfh',
+    'password' => '1f952ff626099530f13a4faede4cd470008332e3ebe0dafc0f00325543912468',
     'charset' => 'utf8mb4',
     'collation' => 'utf8mb4_unicode_ci',
     'flags' => [
