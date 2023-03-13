@@ -28,10 +28,11 @@ class PunitionRepository extends Repository
         $sql = "SELECT * FROM punitions WHERE id_eleve = $id";
         try {
             $punitions = $this->connection->query($sql)->fetchAll();
-            return[
+            /*return[
                 "success" => true,
                 "response" => $punitions
-            ];
+            ];*/
+            return $punitions;
         }
         catch (HttpException $exception)
         {
@@ -55,11 +56,8 @@ class PunitionRepository extends Repository
             $punitions = $this->connection->query($sql_notes)->fetchAll();
             $matiere = $this->connection->query($sql_matiere)->fetchAll()[0];
             return [
-                "success" => true,
-                "response" => [
                     "matiere" => $matiere['matiere'],
                     "punitions" => $punitions
-                ]
             ];
         }
         catch (HttpException $exception)
@@ -77,7 +75,7 @@ class PunitionRepository extends Repository
      */
     public function createPunition(array $punition)
     {
-        $_punition = htmlspecialchars($punition['note']);
+        $_punition = htmlspecialchars($punition['punition']);
         $id_eleve = htmlspecialchars($punition['id_eleve']);
         $id_matiere = htmlspecialchars($punition['id_matiere']);
         $motif = htmlspecialchars($punition['motif']);
