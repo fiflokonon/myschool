@@ -18,7 +18,7 @@ class NoteRepository extends \App\Domain\Core\Repository\Repository
      */
     public function getAllStudentNotes(int $id)
     {
-        $sql = "SELECT * FROM notes WHERE id_eleve = $id";
+        $sql = "SELECT notes.note, notes.type, matieres.matiere FROM notes JOIN matieres ON notes.id_matiere = matieres.id WHERE id_eleve = $id";
         try {
             $notes = $this->connection->query($sql)->fetchAll();
             return[
